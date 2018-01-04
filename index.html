@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>vue-handys</title>
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    
+    <!-- 부가적인 테마 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    
+    <!-- Custom styles for this template -->
+    <link href="navbar-fixed-top.css" rel="stylesheet">
+    
+    <style>
+      .btn_close {
+        position: absolute;
+        right: 0;
+        top: 0;
+        border: none;
+        display: inline-block;
+        outline: 0;
+        padding: 8px 16px;
+        vertical-align: middle;
+        overflow: hidden;
+        text-decoration: none;
+        color: inherit;
+        background-color: inherit;
+        text-align: center;
+        cursor: pointer;
+        white-space: nowrap;
+      }
+      .modal_footer {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+      }
+    </style>
+  </head>
+  
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="navbar/">Default</a></li>
+          <li><a href="" data-target="#myModal" type="button"  data-toggle="modal">Log in</a></li>
+          <li class="active"><a href="./">Fixed top <span class="sr-only">(current)</span></a></li>
+        </ul>
+      </div>
+    </nav>
+    
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div>
+            <button type="button" class="btn_close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          </div>
+          <div>
+            <!-- <img src="./src/assets/crying_apeach.png" width="580" alt="apeach"> -->
+            <img src="http://postfiles12.naver.net/20150615_203/arumi860830_1434359377266VKhue_PNG/Screenshot_2015-06-09-12-11-1901-1.png?type=w2" width="580" alt="apeach">
+          </div>
+          <div class="modal_footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="dist/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
+  
+    <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  </body>
+  </html>
+  
