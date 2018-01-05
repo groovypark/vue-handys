@@ -3,78 +3,112 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>vue-handys</title>
+    <title>handys_hompage</title>
     
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-    
+    <link rel="stylesheet" href="http://fonts.googleapis.com/earlyaccess/notosanskr.css">
+    <!-- <link rel="stylesheet" href="index.css" type="text/css"> -->
     <style>
+      .navbar-default .navbar-nav > li > a > span{
+          color: #3eb3f1;
+      }
       .btn_close {
-        position: absolute;
-        right: 0;
-        top: 0;
-        border: none;
-        display: inline-block;
-        outline: 0;
-        padding: 8px 16px;
-        vertical-align: middle;
-        overflow: hidden;
-        text-decoration: none;
-        color: inherit;
-        background-color: inherit;
-        text-align: center;
-        cursor: pointer;
-        white-space: nowrap;
+          position: absolute;
+          right: 0;
+          top: 0;
+          border: none;
+          display: inline-block;
+          outline: 0;
+          padding: 8px 16px;
+          vertical-align: middle;
+          overflow: hidden;
+          text-decoration: none;
+          color: inherit;
+          background-color: inherit;
+          text-align: center;
+          cursor: pointer;
+          white-space: nowrap;
       }
       .modal-img {
-        padding-left: 0.3em;
+          padding-left: 0.3em;
       }
       .modal_footer {
-        position: absolute;
-        right: 0;
-        bottom: 0;
+          position: absolute;
+          right: 0.3em;
+          bottom: 0;
+      }
+
+      .modal-body{
+        padding: 0px 15px 15px 15px;
       }
 
       /* 로그인 modal 오른쪽 위 정렬 */
       .vertical-alignment-login {
-        display:table;
-        height: 100%;
-        width: 100%;
+          display:table;
+          height: 100%;
+          width: 100%;
       }
       .vertical-align-top {
-        /* To center vertically */
-        display: table-cell;
-        vertical-align: top;
-        padding-left: 30%;
-        padding-top: 3%;
+          /* To center vertically */
+          display: table-cell;
+          vertical-align: top;
+          padding-left: 30%;
       }
       .modal-content {
-        /* Bootstrap sets the size of the modal in the modal-dialog class, we need to inherit it */
-        width:inherit;
-        height:inherit;
-        /* To center horizontally */
-        margin: 0 auto;
+          /* Bootstrap sets the size of the modal in the modal-dialog class, we need to inherit it */
+          width:inherit;
+          height:inherit;
+          /* To center horizontally */
+          margin: 0 auto;
       }
 
       /* 회원가입 modal 가운데 정렬 */
       .modal {
-        text-align: center;
+          text-align: left;
       }
-      .vertical-alignment-signIn {
-        display:table;
-        height: 100%;
-        width: 100%;
+      .vertical-alignment-signUp {
+          display:table;
+          height: 100%;
+          width: 100%;
       }
       .vertical-align-center {
-        /* To center vertically */
-        display: table-cell;
-        vertical-align: middle;
+          /* To center vertically */
+          display: table-cell;
+          vertical-align: middle;
       }
       .modal-content {
-        /* Bootstrap sets the size of the modal in the modal-dialog class, we need to inherit it */
-        width:inherit;
-        height:inherit;
-        /* To center horizontally */
-        margin: 0 auto;
+          /* Bootstrap sets the size of the modal in the modal-dialog class, we need to inherit it */
+          width:inherit;
+          height:inherit;
+          /* To center horizontally */
+          margin: 0 auto;
+      }
+
+      .divSignUp {
+          width: 40em;
+          height: 8em;
+          background-color: #bbbbbb;
+      }
+      .sinUp_right {
+        float: right;
+        padding-right: 1.6em;
+      }
+      .signUp_top_padding {
+        padding-top: 2em;
+      }
+
+      [data-tooltip-text]:hover:after {
+        content: attr(data-tooltip-text);
+
+          position: absolute;
+        bottom: 100%;
+        left: 0;
+          
+          background-color: rgba(0, 0, 0, 0.8);
+        color: #FFFFFF;
+        font-size: 12px;
+
+        z-index: 9999;
       }
     </style>
   </head>
@@ -83,50 +117,260 @@
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="" data-target="#login" type="button"  data-toggle="modal">로그인</a></li>
-          <li><a href="" data-target="#signIn" type="button"  data-toggle="modal">회원가입</a></li>
-          <li class="active"><a href="./">Fixed top <span class="sr-only">(current)</span></a></li>
+          <li><a href="" data-target="#signUp3" type="button"  data-toggle="modal">회원가입3</a></li>
+          <li><a href="" data-target="#signUp2" type="button"  data-toggle="modal">회원가입2</a></li>
+          <li class="signInUP"><a href="" data-target="#login" type="button"  data-toggle="modal"><span>로그인</span></a></li>
+          <li class="signInUP"><a href="" data-target="#signUp" type="button"  data-toggle="modal"><span>회원가입</span></a></li>
+          <li class="active"><a href="./">앱다운로드 <span class="sr-only">(current)</span></a></li>
         </ul>
       </div>
     </nav>
-
-    <!-- login Modal -->
-    <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="loginLabel" aria-hidden="true">
-      <div class="vertical-alignment-login">
-        <div class="modal-dialog vertical-align-top">
+    <!-- signUp3 Modal -->
+    <div class="modal fade" id="signUp3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
           <div class="modal-content">
-            <div>
-              <button type="button" class="btn_close" dat`a-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <div style="padding: 8px 16px;">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             </div>
-            <div>
-              <h3>Login</h3>
-              <h4>ID</h4>
-              <h4>PW</h4>
-            </div>
-            <div class="modal_footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
+            <div class="modal-body">
+              <h3><span style="font-weight:normal">WELCOME!</span> 환영합니다.</h3>
+              <h3 style="margin-top:0px"><b>핸디즈 회원가입</b></h3>
+              <div class="row">
+                <div class="col-md-4">1.이용 약관 동의</div>
+                <div class="col-md-4">2. 회원정보 입력</div>
+                <div class="col-md-4">3. 회원가입 완료</div>
+              </div>
+
+              <hr class="col-md-11" style="height:0.5dp; background: #ccc;">
+
+              <div style="text-align:center; padding:1em"> OOO 호스트님,<br/>회원 가입이 완료되었습니다.<br/>앞으로 핸디즈 서비스 이용이 가능합니다.</div>
+              <button class="btn btn-primary col-md-offset-5"> 다음 단계 > </button>
             </div>
           </div>
         </div>
       </div>
     </div>
-    
-    <!-- signIn Modal -->
-    <div class="modal fade" id="signIn" tabindex="-1" role="dialog" aria-labelledby="signInLabel" aria-hidden="true">
-      <div class="vertical-alignment-signIn">
-        <div class="modal-dialog vertical-align-center">
+
+    <!-- signUp2 Modal -->
+    <div class="modal fade" id="signUp2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
           <div class="modal-content">
-            <div>
-              <button type="button" class="btn_close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <div style="padding: 8px 16px;">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             </div>
-            <div class="modal-img">
-              <!-- <img src="./src/assets/crying_apeach.png" width="580" alt="apeach"> -->
-              <img src="http://postfiles12.naver.net/20150615_203/arumi860830_1434359377266VKhue_PNG/Screenshot_2015-06-09-12-11-1901-1.png?type=w2" width="580" alt="apeach">
+            <div class="modal-body">
+                <h3><span style="font-weight:normal">WELCOME!</span> 환영합니다.</h3>
+                <h3 style="margin-top:0px"><b>핸디즈 회원가입</b></h3>
+                <div class="row">
+                  <div class="col-md-4">1.이용 약관 동의</div>
+                  <div class="col-md-4">2. 회원정보 입력</div>
+                  <div class="col-md-4">3. 회원가입 완료</div>
+                </div>
+    
+                <hr class="col-md-11" style="height:0.5dp; background: #ccc;">
+
+            <form class="form-horizontal" action=" " method="post">
+                <!-- 이름 -->
+                <div class="form-group">
+                  <label for="name" class="col-sm-2 control-label">이름</label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" name="name">
+                    <span style="color:red">필수 항목입니다</span>
+                  </div>
+                </div>
+                <!-- 전화번호 -->
+                <div class="form-group">
+                  <label for="phoneNumber" class="col-sm-2 control-label">전화번호</label>
+                  <div class="col-sm-9">
+                    <input type="number" class="form-control" name="phoneNumber" placeholder="휴대전화 번호를 입력해 주세요">
+                    <span style="color:red">필수 항목입니다</span>
+                  </div>
+                </div>
+                <!-- 전화번호인증 -->
+                <div class="form-group">
+                  <label for="phoneNumberCheck" class="col-sm-2 control-label" style="width:115px;">전화번호 인증</label>
+                  <div class="col-sm-9">
+                    <div class="row">
+                      <div style="width:20em" class="col-xs-8">
+                        <input type="number" class="form-control" name="phoneNumberCheck" placeholder="문자로 받은 인증번호 6자리 입력해 주세요">
+                      </div>
+                      <div style="width:10em" class="col-xs-offset-7"><button>인증번호 받기 ></button></div>
+                    </div>
+                    <span style="color:red">인증코드를 발송하였습니다</span>
+                  </div>
+                </div>
+                <!-- 아이디 -->
+                <div class="form-group">
+                  <label for="id" class="col-sm-2 control-label">아이디</label>
+                  <div class="col-sm-9">
+                    <input type="email" class="form-control" name="id" placeholder="E-mail 주소를 입력해 주세요">
+                    <span style="color:red">정확한 E-mail 주소를 입력해 주세요</span>
+                  </div>
+                </div>
+                <!-- 비밀번호 -->
+                <div class="form-group">
+                  <label for="password" class="col-sm-2 control-label">비밀번호</label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" name="password" placeholder="">
+                    <span style="color:red">문자와 숫자 조합으로 8자 이상 입력해 주세요</span>
+                  </div>
+                </div>
+                <!-- 비밀번호 확인 -->
+                <div class="form-group">
+                  <label for="passwordCheck" class="col-sm-2 control-label">비밀번호 확인</label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" name="passwordCheck" placeholder="">
+                    <span style="color:red">비밀번호가 일치하지 않습니다.</span>
+                  </div>
+                </div>
+                <!-- 성별 -->
+                <div class="form-group">
+                  <label for="gender" class="col-sm-2 control-label">성별</label>
+                  <div class="col-sm-9">
+                    <input type="radio" name="gender"> 남성
+                    <input type="radio" name="gender"> 여성
+                  </div>
+                </div>
+                <!-- 성별 -->
+                <div class="form-group">
+                  <label for="gender" class="col-sm-2 control-label">연령대</label>
+                  <div class="col-sm-9">
+                    <input type="radio" name="age"> 10대 이하
+                    <input type="radio" name="age"> 20대
+                    <input type="radio" name="age"> 30대
+                    <input type="radio" name="age"> 40대
+                    <input type="radio" name="age"> 50대
+                    <input type="radio" name="age"> 60대 이상
+                  </div>
+                </div>
+                <!-- 성별 -->
+                <div class="form-group">
+                  <label for="gender" class="col-sm-2 control-label">호스팅 지역</label>
+                  <div class="col-sm-9">
+                    <input type="radio" name="place"> 서울
+                    <input type="radio" name="place"> 부산
+                    <input type="radio" name="place"> 제주
+                    <input type="radio" name="place"> 그 외
+                  </div>
+                </div>
+  
+                <!-- 버튼 -->
+                <div class="form-group">
+                  <div class="col-sm-offset-4 col-sm-9">
+                    <button class="btn btn-primary" data-dismiss="modal"> 이전 단계 > </button>
+                    <button type="submit" class="btn btn-primary" data-dismiss="modal"> 다음 단계 > </button>
+                  </div>
+                </div>
+              </form>
             </div>
-            <div class="modal_footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+      
+    <!-- login Modal -->
+    <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="vertical-align-top">
+        <div class="modal-dialog vertical-align-top">
+          <div class="modal-content">
+            <div style="padding: 8px 16px;">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <form class="form-horizontal" action=" " method="post">
+              <div class="form-group">
+                <label for="inputId" class="col-sm-2 control-label">ID</label>
+                <div class="col-sm-9">
+                  <input type="email" class="form-control" id="inputId" placeholder="이메일 주소">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputPassword" class="col-sm-2 control-label">PW</label>
+                <div class="col-sm-9">
+                  <input type="password" class="form-control" id="inputPassword" placeholder="비밀 번호">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-9">
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox">
+                      <a data-toggle="tooltip" 
+                      data-placement="bottom" 
+                      title="체크 후 로그인하시면 로그인 상태가 유지됩니다.
+공공장소에서 사용할 경우, 개인정보가 도용될 수 있으니, 개인PC에서만 사용하시기 바랍니다.">
+                        로그인 상태 유지
+                      </a>
+                    </label>
+                    <div style="float:right">
+                      <a>아이디/비밀번호 찾기</a>
+                      <a>회원가입</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-offset-9 col-sm-9">
+                  <button type="submit" class="btn btn-primary" data-dismiss="modal"> 로그인 > </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- signUp Modal -->
+    <div class="modal fade" id="signUp" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div style="padding: 8px 16px;">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+              <h3><span style="font-weight:normal">WELCOME!</span> 환영합니다.</h3>
+              <h3 style="margin-top:0px"><b>핸디즈 회원가입</b></h3>
+              <div class="row">
+                <div class="col-md-4">1.이용 약관 동의</div>
+                <div class="col-md-4">2. 회원정보 입력</div>
+                <div class="col-md-4">3. 회원가입 완료</div>
+              </div>
+
+              <hr class="col-md-11" style="height:0.5dp; background: #ccc;">
+
+              <div class="row">
+                  <div class="col-md-10">
+                    핸디즈 서비스 이용약관 및 개인정보 활용 동의 내용을<br/>
+                    확인하였으며, 아래 내용에 동의합니다.
+                  </div>
+                  <div class="sinUp_right"><button>모두동의 ></button></div>
+              </div>
+
+              <hr class="col-md-11" style="height:0.5dp; background: #ccc;">
+
+              <div class="row">
+                <div class="col-md-9">이용 약관 동의(필수)</div>
+                <div class="sinUp_right"><button>동의하기 ></button></div>
+              </div>
+              <div class="divSignUp" style="overflow:scroll;">
+                이용ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ약ㄲㄲㄲㄲㄲㄲㄲㄲㄲㄲ곽ㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㅇ미ㅜㄹ머ㅜㅇㅁ우림ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
+                ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋasdffffffffffffffffffffffffffaㅁㄴㅇㄹㅁㄴㅇㄹㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
+                ㅁㄴㅇㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄴㄴㄴㄴㄴㄴㄴ
+              </div>
+              
+              <div class="row signUp_top_padding">
+                  <div class="col-md-10">개인정보 취급 방침 동의(필수)</div>
+                  <div class="sinUp_right"><button>동의하기 ></button></div>
+                </div>
+                <!-- <div id="myDIV" class="divSignUp" style="overflow:scroll;"> -->
+                <div class="divSignUp" style="overflow:scroll;">
+                  이용ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ약ㄲㄲㄲㄲㄲㄲㄲㄲㄲㄲ곽ㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㅇ미ㅜㄹ머ㅜㅇㅁ우림ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
+                  ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋasdffffffffffffffffffffffffffaㅁㄴㅇㄹㅁㄴㅇㄹㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
+                  ㅁㄴㅇㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁaaaaaaaaaaaaaaaasddddddddddddㄴㄴㄴㄴㄴㄴㄴ
+                </div>
+                <div class="col-sm-offset-5 signUp_top_padding">
+                  <!-- <button onclick="display()" class="btn btn-primary"> 다음 단계 > </button> -->
+                  <button class="btn btn-primary"> 다음 단계 > </button>
+                </div>
             </div>
           </div>
         </div>
@@ -134,10 +378,24 @@
     </div>
     
     <div id="app"></div>
+
+    <script>
+      $("[data-toggle='tooltip']").tooltip();
+
+      function doDisplay(){
+        var con = document.getElementById("myDIV");
+        if(con.style.display=='none'){
+            con.style.display = 'block';
+        }else{
+            con.style.display = 'none';
+        }
+      }
+    </script>
+
     <!-- built files will be auto injected -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
   </body>
-  </html>
+</html>
   

@@ -1,4 +1,4 @@
-# vue-handys
+# handys_homepage
 
 > A Vue.js project
 
