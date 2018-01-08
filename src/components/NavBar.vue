@@ -26,102 +26,41 @@
     </div>
     <!-- Navbar end -->
 
+    <!-- login Modal -->
     <div>
       <b-modal id="modalLink" hide-header hide-footer>
-        <div style="padding: 8px 16px;">
+        <div style="height:0.6em; padding: 4px 8px;">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         </div>
-        <label for="inputId" class="col-sm-2 control-label"><img src="/static/assets/signImage/login/id.png"></label>
-        <a href="#" v-b-tooltip title="Tooltip in a modal!">Link</a>
 
-        <div class="form-group">
-                <label for="inputId" class="col-sm-2 control-label"><img src="/static/assets/signImage/login/id.png"></label>
-                <div class="col-sm-9">
-                  <input type="email" class="form-control" id="inputId" placeholder="이메일 주소">
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="inputPassword" class="col-sm-2 control-label">PW</label>
-                <div class="col-sm-9">
-                  <input type="password" class="form-control" id="inputPassword" placeholder="비밀 번호">
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="col-sm-offset-2 col-sm-9">
-                  <div class="checkbox">
-                    <label>
-                      <input type="checkbox">
-                      <a data-toggle="tooltip" 
-                      data-placement="bottom" 
-                      title="체크 후 로그인하시면 로그인 상태가 유지됩니다.
-공공장소에서 사용할 경우, 개인정보가 도용될 수 있으니, 개인PC에서만 사용하시기 바랍니다.">
-                        로그인 상태 유지
-                      </a>
-                    </label>
-                    <div style="float:right">
-                      <a>아이디/비밀번호 찾기</a>
-                      <a>회원가입</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="col-sm-offset-9 col-sm-9">
-                  <button class="btnModal" type="submit" data-dismiss="modal"><img src="/static/assets/signImage/login/btnLogin.png"></button>
-                </div>
-              </div>
-      </b-modal>
-    </div>
-
-    <!-- login Modal -->
-    <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-      <div class="vertical-align-top">
-        <div class="modal-dialog vertical-align-top">
-          <div class="modal-content">
-            <div style="padding: 8px 16px;">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <b-form style="padding:30px;">
+          <b-form-group>
+            <label for="inputId">
+              <img src="/static/assets/signImage/login/id.png">
+            </label>
+            <input type="email" id="inputId" placeholder="이메일 주소" class="login-input">
+          </b-form-group>
+          <b-form-group>
+            <label for="inputPassword">
+              <img src="/static/assets/signImage/login/password.png">
+            </label>
+            <input type="password" id="inputPassword" placeholder="비밀 번호" class="login-input">
+          </b-form-group>
+          <b-form-group>
+            <input type="checkbox"><a class="login-footer"> 로그인 상태 유지</a>
+            <div style="float:right">
+              <a style="color: #464646; font-size:12px;">아이디/비밀번호 찾기</a>
+              <a style="color: #464646; font-size:12px;"> 회원가입</a>
             </div>
-            <form class="form-horizontal" action=" " method="post">
-              <div class="form-group">
-                <label for="inputId" class="col-sm-2 control-label"><img src="/static/assets/signImage/login/id.png"></label>
-                <div class="col-sm-9">
-                  <input type="email" class="form-control" id="inputId" placeholder="이메일 주소">
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="inputPassword" class="col-sm-2 control-label">PW</label>
-                <div class="col-sm-9">
-                  <input type="password" class="form-control" id="inputPassword" placeholder="비밀 번호">
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="col-sm-offset-2 col-sm-9">
-                  <div class="checkbox">
-                    <label>
-                      <input type="checkbox">
-                      <a data-toggle="tooltip" 
-                      data-placement="bottom" 
-                      title="체크 후 로그인하시면 로그인 상태가 유지됩니다.
-공공장소에서 사용할 경우, 개인정보가 도용될 수 있으니, 개인PC에서만 사용하시기 바랍니다.">
-                        로그인 상태 유지
-                      </a>
-                    </label>
-                    <div style="float:right">
-                      <a>아이디/비밀번호 찾기</a>
-                      <a>회원가입</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="col-sm-offset-9 col-sm-9">
-                  <button type="submit" class="btn btn-primary" data-dismiss="modal"> 로그인 > </button>
-                </div>
-              </div>
-            </form>
+          </b-form-group>
+
+          <div style="float:right">
+            <button class="btnModal" type="submit" data-dismiss="modal">
+              <img src="/static/assets/signImage/login/btnLogin.png">
+            </button>
           </div>
-        </div>
-      </div>
+        </b-form>
+      </b-modal>
     </div>
 
     <!-- emailCode Modal -->
@@ -453,5 +392,22 @@ a {
 .btnModal {
   background: none;
   border: none;
+  padding: 0;
+}
+
+.login-input {
+  width: 75%;
+  height: 23px;
+  float: right;
+  padding: 6px 11px;
+  box-sizing: border-box;
+  border: none;
+  background-color: #f3f3f3;
+  color: #f3f3f3;
+  font-size: 10px;
+}
+.login-footer {
+  color: #464646;
+  font-size: 12px;
 }
 </style>
