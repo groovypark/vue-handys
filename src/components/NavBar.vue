@@ -9,10 +9,16 @@
           <li><a href="" data-target="#signUp2" type="button"  data-toggle="modal">회원가입2</a></li>
           <li class="signInUP"><a href="" data-target="#login" type="button"  data-toggle="modal"><span>로그인</span></a></li>
           <li class="signInUP"><a href="" data-target="#signUp" type="button"  data-toggle="modal"><span>회원가입</span></a></li>
-          <li class="active"><a href="./">앱다운로드 <span class="sr-only">(current)</span></a></li>
+          <li class="active"><b-btn v-b-modal.modal1>Launch demo modal</b-btn></li>
         </ul>
       </div>
     </nav>
+
+    <div>
+      <b-modal id="modal1" title="Bootstrap-Vue">
+        <p class="my-4">Hello from modal!</p>
+      </b-modal>
+    </div>
 
     <!-- emailCode Modal -->
     <div class="modal fade" id="emailCode" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -235,7 +241,7 @@
             </div>
             <form class="form-horizontal" action=" " method="post">
               <div class="form-group">
-                <label for="inputId" class="col-sm-2 control-label">ID</label>
+                <label for="inputId" class="col-sm-2 control-label"><img src="/static/assets/signImage/login/id.png"></label>
                 <div class="col-sm-9">
                   <input type="email" class="form-control" id="inputId" placeholder="이메일 주소">
                 </div>
@@ -335,6 +341,8 @@
 </template>
 
 <script>
+import { Modal } from 'bootstrap-vue/es/components';
+
 export default {
   name: 'NavBar',
   data () {
