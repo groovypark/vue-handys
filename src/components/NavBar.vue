@@ -1,19 +1,30 @@
 <template>
   <div>
-    <nav class="navbar navbar-default navbar-fixed-top">
-      <div class="container">
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="" data-target="#emailCode" type="button"  data-toggle="modal">이메일인증코드</a></li>
-          <li><a href="" data-target="#phoneCode" type="button"  data-toggle="modal">핸드폰인증코드</a></li>
-          <li><a href="" data-target="#signUp3" type="button"  data-toggle="modal">회원가입3</a></li>
-          <li><a href="" data-target="#signUp2" type="button"  data-toggle="modal">회원가입2</a></li>
-          <li class="signInUP"><a href="" data-target="#login" type="button"  data-toggle="modal"><span>로그인</span></a></li>
-          <li class="signInUP"><a href="" data-target="#signUp" type="button"  data-toggle="modal"><span>회원가입</span></a></li>
-          <li class="active"><b-btn v-b-modal.modal1>Launch demo modal</b-btn></li>
-        </ul>
-      </div>
-    </nav>
+    <div>
+      <b-navbar toggleable="md" type="dark" variant="info" fixed="top">
 
+        <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
+
+        <b-navbar-brand href="#">NavBar</b-navbar-brand>
+
+        <b-collapse is-nav id="nav_collapse">
+
+          <b-navbar-nav>
+            <b-nav-item href="#">Link</b-nav-item>
+          </b-navbar-nav>
+
+          <!-- Right aligned nav items -->
+          <b-navbar-nav class="ml-auto">
+            <b-navbar-nav>
+              <b-nav-item v-b-modal.modal1 href="#">Link</b-nav-item>
+            </b-navbar-nav>
+
+          </b-navbar-nav>
+
+        </b-collapse>
+      </b-navbar>
+    </div>
+    
     <div>
       <b-modal id="modal1" title="Bootstrap-Vue">
         <p class="my-4">Hello from modal!</p>
