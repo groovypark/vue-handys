@@ -1,5 +1,6 @@
 <template>
   <div>
+    <!-- Navbar start -->
     <div>
       <b-navbar toggleable="md" type="dark" variant="info" fixed="top">
 
@@ -23,33 +24,52 @@
         </b-collapse>
       </b-navbar>
     </div>
-    
+    <!-- Navbar end -->
+
     <div>
-      <!-- Modal Component -->
-      <b-modal id="modalLogin"
-              ref="modal"
-              title="Submit your name"
-              @ok="handleOk"
-              @shown="clearName">
-        <form @submit.stop.prevent="handleSubmit">
-          <b-form-input type="text"
-                        placeholder="Enter your name"
-                        v-model="name"></b-form-input>
-        </form>
-      </b-modal>
-
-
-      <b-modal id="modalLink" hide-header="true">
+      <b-modal id="modalLink" hide-header hide-footer>
         <div style="padding: 8px 16px;">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         </div>
         <label for="inputId" class="col-sm-2 control-label"><img src="/static/assets/signImage/login/id.png"></label>
-  
+        <a href="#" v-b-tooltip title="Tooltip in a modal!">Link</a>
 
-        <p>
-          This <a href="#" v-b-tooltip title="Tooltip in a modal!">Link</a>
-          will show a tooltip on hover.
-        </p>
+        <div class="form-group">
+                <label for="inputId" class="col-sm-2 control-label"><img src="/static/assets/signImage/login/id.png"></label>
+                <div class="col-sm-9">
+                  <input type="email" class="form-control" id="inputId" placeholder="이메일 주소">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputPassword" class="col-sm-2 control-label">PW</label>
+                <div class="col-sm-9">
+                  <input type="password" class="form-control" id="inputPassword" placeholder="비밀 번호">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-9">
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox">
+                      <a data-toggle="tooltip" 
+                      data-placement="bottom" 
+                      title="체크 후 로그인하시면 로그인 상태가 유지됩니다.
+공공장소에서 사용할 경우, 개인정보가 도용될 수 있으니, 개인PC에서만 사용하시기 바랍니다.">
+                        로그인 상태 유지
+                      </a>
+                    </label>
+                    <div style="float:right">
+                      <a>아이디/비밀번호 찾기</a>
+                      <a>회원가입</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-offset-9 col-sm-9">
+                  <button class="btnModal" type="submit" data-dismiss="modal"><img src="/static/assets/signImage/login/btnLogin.png"></button>
+                </div>
+              </div>
       </b-modal>
     </div>
 
@@ -379,27 +399,34 @@ import { Modal } from 'bootstrap-vue/es/components';
 export default {
   data () {
     return {
-      name: '',
-      names: []
+      form: {
+        email: '',
+        name: '',
+        food: null,
+        checked: []
+      },
+      foods: [
+        { text: 'Select One', value: null },
+        'Carrots', 'Beans', 'Tomatoes', 'Corn'
+      ],
+      show: true
     }
   },
   methods: {
-    clearName () {
-      this.name = ''
+    onSubmit (evt) {
+      evt.preventDefault();
+      alert(JSON.stringify(this.form));
     },
-    handleOk (evt) {
-      // Prevent modal from closing
-      evt.preventDefault()
-      if (!this.name) {
-        alert('Please enter your name')
-      } else {
-        this.handleSubmit()
-      }
-    },
-    handleSubmit () {
-      this.names.push(this.name)
-      this.clearName()
-      this.$refs.modal.hide()
+    onReset (evt) {
+      evt.preventDefault();
+      /* Reset our form values */
+      this.form.email = '';
+      this.form.name = '';
+      this.form.food = null;
+      this.form.checked = [];
+      /* Trick to reset/clear native browser form validation state */
+      this.show = false;
+      this.$nextTick(() => { this.show = true });
     }
   }
 }
@@ -421,5 +448,10 @@ li {
 }
 a {
   color: #42b983;
+}
+
+.btnModal {
+  background: none;
+  border: none;
 }
 </style>
