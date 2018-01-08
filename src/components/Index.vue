@@ -4,7 +4,13 @@
     <nav-bar></nav-bar>
     <div class="hello">
       <h1>{{ msg }}</h1>
-      <img v-bind:src="img"/>
+      <!-- Main UI -->
+      <div class="mt-3 mb-3">
+        Submitted Names:
+        <ul>
+          <li v-for="n in names">{{n}}</li>
+        </ul>
+      </div>
       <img src="https://files.slack.com/files-tmb/T8N3E1MA9-F8NQQLTP0-87cb498054/_____________________________________1024.jpg">
       <img src="https://files.slack.com/files-tmb/T8N3E1MA9-F8NQQLTP0-87cb498054/_____________________________________1024.jpg">
       <img src="https://files.slack.com/files-tmb/T8N3E1MA9-F8NQQLTP0-87cb498054/_____________________________________1024.jpg">

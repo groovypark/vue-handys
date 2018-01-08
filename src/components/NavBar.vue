@@ -15,10 +15,9 @@
 
           <!-- Right aligned nav items -->
           <b-navbar-nav class="ml-auto">
-            <b-navbar-nav>
-              <b-nav-item v-b-modal.modal1 href="#">Link</b-nav-item>
-            </b-navbar-nav>
-
+            <b-nav-item v-b-modal.modalLogin href="#">Login</b-nav-item>
+            <b-nav-item v-b-modal.modalLink href="#">Link</b-nav-item>
+            <b-nav-item href="#">Link</b-nav-item>
           </b-navbar-nav>
 
         </b-collapse>
@@ -26,9 +25,83 @@
     </div>
     
     <div>
-      <b-modal id="modal1" title="Bootstrap-Vue">
-        <p class="my-4">Hello from modal!</p>
+      <!-- Modal Component -->
+      <b-modal id="modalLogin"
+              ref="modal"
+              title="Submit your name"
+              @ok="handleOk"
+              @shown="clearName">
+        <form @submit.stop.prevent="handleSubmit">
+          <b-form-input type="text"
+                        placeholder="Enter your name"
+                        v-model="name"></b-form-input>
+        </form>
       </b-modal>
+
+
+      <b-modal id="modalLink" hide-header="true">
+        <div style="padding: 8px 16px;">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        </div>
+        <label for="inputId" class="col-sm-2 control-label"><img src="/static/assets/signImage/login/id.png"></label>
+  
+
+        <p>
+          This <a href="#" v-b-tooltip title="Tooltip in a modal!">Link</a>
+          will show a tooltip on hover.
+        </p>
+      </b-modal>
+    </div>
+
+    <!-- login Modal -->
+    <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="vertical-align-top">
+        <div class="modal-dialog vertical-align-top">
+          <div class="modal-content">
+            <div style="padding: 8px 16px;">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <form class="form-horizontal" action=" " method="post">
+              <div class="form-group">
+                <label for="inputId" class="col-sm-2 control-label"><img src="/static/assets/signImage/login/id.png"></label>
+                <div class="col-sm-9">
+                  <input type="email" class="form-control" id="inputId" placeholder="이메일 주소">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputPassword" class="col-sm-2 control-label">PW</label>
+                <div class="col-sm-9">
+                  <input type="password" class="form-control" id="inputPassword" placeholder="비밀 번호">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-9">
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox">
+                      <a data-toggle="tooltip" 
+                      data-placement="bottom" 
+                      title="체크 후 로그인하시면 로그인 상태가 유지됩니다.
+공공장소에서 사용할 경우, 개인정보가 도용될 수 있으니, 개인PC에서만 사용하시기 바랍니다.">
+                        로그인 상태 유지
+                      </a>
+                    </label>
+                    <div style="float:right">
+                      <a>아이디/비밀번호 찾기</a>
+                      <a>회원가입</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-offset-9 col-sm-9">
+                  <button type="submit" class="btn btn-primary" data-dismiss="modal"> 로그인 > </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- emailCode Modal -->
@@ -241,57 +314,6 @@
         </div>
       </div>
     </div>
-      
-    <!-- login Modal -->
-    <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-      <div class="vertical-align-top">
-        <div class="modal-dialog vertical-align-top">
-          <div class="modal-content">
-            <div style="padding: 8px 16px;">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            </div>
-            <form class="form-horizontal" action=" " method="post">
-              <div class="form-group">
-                <label for="inputId" class="col-sm-2 control-label"><img src="/static/assets/signImage/login/id.png"></label>
-                <div class="col-sm-9">
-                  <input type="email" class="form-control" id="inputId" placeholder="이메일 주소">
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="inputPassword" class="col-sm-2 control-label">PW</label>
-                <div class="col-sm-9">
-                  <input type="password" class="form-control" id="inputPassword" placeholder="비밀 번호">
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="col-sm-offset-2 col-sm-9">
-                  <div class="checkbox">
-                    <label>
-                      <input type="checkbox">
-                      <a data-toggle="tooltip" 
-                      data-placement="bottom" 
-                      title="체크 후 로그인하시면 로그인 상태가 유지됩니다.
-공공장소에서 사용할 경우, 개인정보가 도용될 수 있으니, 개인PC에서만 사용하시기 바랍니다.">
-                        로그인 상태 유지
-                      </a>
-                    </label>
-                    <div style="float:right">
-                      <a>아이디/비밀번호 찾기</a>
-                      <a>회원가입</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="col-sm-offset-9 col-sm-9">
-                  <button type="submit" class="btn btn-primary" data-dismiss="modal"> 로그인 > </button>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
     
     <!-- signUp Modal -->
     <div class="modal fade" id="signUp" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -355,11 +377,29 @@
 import { Modal } from 'bootstrap-vue/es/components';
 
 export default {
-  name: 'NavBar',
   data () {
     return {
-      msg: '핸디즈입니다',
-      img: './src/assets/btn_login.png'
+      name: '',
+      names: []
+    }
+  },
+  methods: {
+    clearName () {
+      this.name = ''
+    },
+    handleOk (evt) {
+      // Prevent modal from closing
+      evt.preventDefault()
+      if (!this.name) {
+        alert('Please enter your name')
+      } else {
+        this.handleSubmit()
+      }
+    },
+    handleSubmit () {
+      this.names.push(this.name)
+      this.clearName()
+      this.$refs.modal.hide()
     }
   }
 }
