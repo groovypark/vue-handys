@@ -16,7 +16,7 @@
 
           <!-- Right aligned nav items -->
           <b-navbar-nav class="ml-auto">
-            <b-nav-item v-b-modal.modalLogin href="#">Login</b-nav-item>
+            <b-nav-item @click="showModal" href="#">Login</b-nav-item>
             <b-nav-item v-b-modal.modalLink href="#">Link</b-nav-item>
             <b-nav-item href="#">Link</b-nav-item>
           </b-navbar-nav>
@@ -26,11 +26,11 @@
     </div>
     <!-- Navbar end -->
 
-    <!-- login Modal -->
+    <!-- Login modal -->
     <div>
-      <b-modal id="modalLink" hide-header hide-footer>
+      <b-modal ref="Login" hide-header hide-footer width="600px;">
         <div style="height:0.6em; padding: 4px 8px;">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <button type="button" class="close" @click="hideModal"><span aria-hidden="true">&times;</span></button>
         </div>
 
         <b-form style="padding:30px;">
@@ -46,19 +46,18 @@
             </label>
             <input type="password" id="inputPassword" placeholder="비밀 번호" class="login-input">
           </b-form-group>
-          <b-form-group>
-            <input type="checkbox"><a class="login-footer"> 로그인 상태 유지</a>
+            <input type="checkbox"><a class="login-footer" @mouseover="showImageLoginStatus" @mouseleave="hideImageLoginStatus"> 로그인 상태 유지</a>
             <div style="float:right">
               <a style="color: #464646; font-size:12px;">아이디/비밀번호 찾기</a>
               <a style="color: #464646; font-size:12px;"> 회원가입</a>
             </div>
-          </b-form-group>
 
-          <div style="float:right">
-            <button class="btnModal" type="submit" data-dismiss="modal">
+          <div style="float:right;">
+            <b-btn class="btnModal" type="submit" data-dismiss="modal" @click="hideModal" style="position:absolute; left:60%; bottom:10%">
               <img src="/static/assets/signImage/login/btnLogin.png">
-            </button>
+            </b-btn>
           </div>
+            <img id="imgLoginStatus" style="visibility:hidden; position:relative;" src="/static/assets/signImage/login/loginStatus.png" alt="Login status image">
         </b-form>
       </b-modal>
     </div>
@@ -335,8 +334,18 @@
 <script>
 
 export default {
-  data () {
-    return {
+  methods: {
+    showModal () {
+      this.$refs.Login.show()
+    },
+    hideModal () {
+      this.$refs.Login.hide()
+    },
+    showImageLoginStatus () {
+      document.getElementById('imgLoginStatus').style.visibility = 'visible'
+    },
+    hideImageLoginStatus () {
+      document.getElementById('imgLoginStatus').style.visibility = 'hidden'
     }
   }
 }
@@ -373,12 +382,16 @@ a {
   padding: 6px 11px;
   box-sizing: border-box;
   border: none;
-  background-color: #f3f3f3;
-  color: #f3f3f3;
+  background-color: #d5d5d5;
+  color: #464646;
   font-size: 10px;
 }
 .login-footer {
   color: #464646;
   font-size: 12px;
+}
+
+b-modal .modal-content {
+  width: 600px;
 }
 </style>
