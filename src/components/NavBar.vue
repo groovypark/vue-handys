@@ -3,21 +3,18 @@
     <!-- Navbar start -->
     <div>
       <b-navbar toggleable="md" type="dark" variant="info" fixed="top">
-
         <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
-
-        <b-navbar-brand href="#">NavBar</b-navbar-brand>
-
+        <b-navbar-brand href="#">Handys</b-navbar-brand>
         <b-collapse is-nav id="nav_collapse">
-
+        
           <b-navbar-nav>
             <b-nav-item href="#">Link</b-nav-item>
           </b-navbar-nav>
 
           <!-- Right aligned nav items -->
           <b-navbar-nav class="ml-auto">
-            <b-nav-item @click="showModal" href="#">Login</b-nav-item>
-            <b-nav-item v-b-modal.modalLink href="#">Link</b-nav-item>
+            <b-nav-item @click="showLoginModal" href="#">로그인</b-nav-item>
+            <b-nav-item @click="showSighUpModal" href="#">회원가입</b-nav-item>
             <b-nav-item href="#">Link</b-nav-item>
           </b-navbar-nav>
 
@@ -28,12 +25,13 @@
 
     <!-- Login modal -->
     <div>
-      <b-modal ref="Login" hide-header hide-footer width="600px;">
+      <b-modal ref="Login" hide-header hide-footer>
         <div style="height:0.6em; padding: 4px 8px;">
-          <button type="button" class="close" @click="hideModal"><span aria-hidden="true">&times;</span></button>
+          <button type="button" class="close" @click="hideLoginModal"><span aria-hidden="true">&times;</span></button>
         </div>
 
         <b-form style="padding:30px;">
+
           <b-form-group>
             <label for="inputId">
               <img src="/static/assets/signImage/login/id.png">
@@ -46,21 +44,100 @@
             </label>
             <input type="password" id="inputPassword" placeholder="비밀 번호" class="login-input">
           </b-form-group>
-            <input type="checkbox"><a class="login-footer" @mouseover="showImageLoginStatus" @mouseleave="hideImageLoginStatus"> 로그인 상태 유지</a>
-            <div style="float:right">
-              <a style="color: #464646; font-size:12px;">아이디/비밀번호 찾기</a>
-              <a style="color: #464646; font-size:12px;"> 회원가입</a>
-            </div>
 
+          <input type="checkbox">
+          <a class="login-footer" @mouseover="showImageLoginStatus" @mouseleave="hideImageLoginStatus">
+            로그인 상태 유지
+          </a>
+          <div style="float:right">
+            <a style="color: #464646; font-size:12px;">아이디/비밀번호 찾기</a>
+            <a style="color: #464646; font-size:12px;"> 회원가입</a>
+          </div>
+          <!-- 로그인 버튼 -->
           <div style="float:right;">
-            <b-btn class="btnModal" type="submit" data-dismiss="modal" @click="hideModal" style="position:absolute; left:60%; bottom:10%">
+            <b-btn class="btnModal" type="submit" data-dismiss="modal" @click="hideLoginModal" style="position:absolute; left:60%; bottom:10%">
               <img src="/static/assets/signImage/login/btnLogin.png">
             </b-btn>
           </div>
-            <img id="imgLoginStatus" style="visibility:hidden; position:relative;" src="/static/assets/signImage/login/loginStatus.png" alt="Login status image">
+          <!-- 로그인 상태 유지 tooltip 이미지-->
+          <img id="imgLoginStatus" style="visibility:hidden; position:relative;" src="/static/assets/signImage/login/loginStatus.png" alt="Login status image">
+
         </b-form>
       </b-modal>
     </div>
+
+    <!-- signUp Modal -->
+    <div>
+      <b-modal ref="SignUp" hide-header hide-footer>
+        <div style="height:0.6em; padding: 4px 8px;">
+          <button type="button" class="close" @click="hideSignUpModal"><span aria-hidden="true">&times;</span></button>
+        </div>
+        <img src="static/assets/signImage/membershipAgreement/welcome.png"></img>
+        <img src="static/assets/signImage/membershipAgreement/agreementHeader.png"></img>
+        <!-- 로그인 버튼 -->
+          <div style="float:right;">
+            <b-btn class="btnModal" type="submit" data-dismiss="modal" @click="hideLoginModal" style="position:absolute; left:60%; bottom:10%">
+              <img src="/static/assets/signImage/login/btnLogin.png">
+            </b-btn>
+          </div>
+      </b-modal>
+    </div>
+
+    <!-- signUp Modal -->
+    <!--
+    <div class="modal fade" id="signUp" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div style="padding: 8px 16px;">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          </div>
+          <div class="">
+            <img src="static/assets/signImage/membershipAgreement/welcome.png"></img>
+            <div class="row">
+              <div class="col-md-4">1.이용 약관 동의</div>
+              <div class="col-md-4">2. 회원정보 입력</div>
+              <div class="col-md-4">3. 회원가입 완료</div>
+            </div>
+
+            <hr class="col-md-11" style="height:0.5dp; background: #ccc;">
+
+            <div class="row">
+                <div class="col-md-10">
+                  핸디즈 서비스 이용약관 및 개인정보 활용 동의 내용을<br/>
+                  확인하였으며, 아래 내용에 동의합니다.
+                </div>
+                <div class="sinUp_right"><button>모두동의 ></button></div>
+            </div>
+
+            <hr class="col-md-11" style="height:0.5dp; background: #ccc;">
+
+            <div class="row">
+              <div class="col-md-9">이용 약관 동의(필수)</div>
+              <div class="sinUp_right"><button>동의하기 ></button></div>
+            </div>
+            <div class="divSignUp" style="overflow:scroll;">
+              이용ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ약ㄲㄲㄲㄲㄲㄲㄲㄲㄲㄲ곽ㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㅇ미ㅜㄹ머ㅜㅇㅁ우림ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
+              ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋasdffffffffffffffffffffffffffaㅁㄴㅇㄹㅁㄴㅇㄹㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
+              ㅁㄴㅇㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄴㄴㄴㄴㄴㄴㄴ
+            </div>
+            
+            <div class="row signUp_top_padding">
+                <div class="col-md-10">개인정보 취급 방침 동의(필수)</div>
+                <div class="sinUp_right"><button>동의하기 ></button></div>
+              </div>
+              <div class="divSignUp" style="overflow:scroll;">
+                이용ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ약ㄲㄲㄲㄲㄲㄲㄲㄲㄲㄲ곽ㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㅇ미ㅜㄹ머ㅜㅇㅁ우림ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
+                ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋasdffffffffffffffffffffffffffaㅁㄴㅇㄹㅁㄴㅇㄹㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
+                ㅁㄴㅇㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁaaaaaaaaaaaaaaaasddddddddddddㄴㄴㄴㄴㄴㄴㄴ
+              </div>
+              <div class="col-sm-offset-5 signUp_top_padding">
+                <button class="btn btn-primary"> 다음 단계 > </button>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    -->
 
     <!-- emailCode Modal -->
     <div class="modal fade" id="emailCode" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -273,61 +350,6 @@
       </div>
     </div>
     
-    <!-- signUp Modal -->
-    <div class="modal fade" id="signUp" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div style="padding: 8px 16px;">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          </div>
-          <div class="">
-            <img src="static/assets/signImage/membershipAgreement/welcome.png"></img>
-            <div class="row">
-              <div class="col-md-4">1.이용 약관 동의</div>
-              <div class="col-md-4">2. 회원정보 입력</div>
-              <div class="col-md-4">3. 회원가입 완료</div>
-            </div>
-
-            <hr class="col-md-11" style="height:0.5dp; background: #ccc;">
-
-            <div class="row">
-                <div class="col-md-10">
-                  핸디즈 서비스 이용약관 및 개인정보 활용 동의 내용을<br/>
-                  확인하였으며, 아래 내용에 동의합니다.
-                </div>
-                <div class="sinUp_right"><button>모두동의 ></button></div>
-            </div>
-
-            <hr class="col-md-11" style="height:0.5dp; background: #ccc;">
-
-            <div class="row">
-              <div class="col-md-9">이용 약관 동의(필수)</div>
-              <div class="sinUp_right"><button>동의하기 ></button></div>
-            </div>
-            <div class="divSignUp" style="overflow:scroll;">
-              이용ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ약ㄲㄲㄲㄲㄲㄲㄲㄲㄲㄲ곽ㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㅇ미ㅜㄹ머ㅜㅇㅁ우림ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
-              ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋasdffffffffffffffffffffffffffaㅁㄴㅇㄹㅁㄴㅇㄹㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
-              ㅁㄴㅇㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄴㄴㄴㄴㄴㄴㄴ
-            </div>
-            
-            <div class="row signUp_top_padding">
-                <div class="col-md-10">개인정보 취급 방침 동의(필수)</div>
-                <div class="sinUp_right"><button>동의하기 ></button></div>
-              </div>
-              <!-- <div id="myDIV" class="divSignUp" style="overflow:scroll;"> -->
-              <div class="divSignUp" style="overflow:scroll;">
-                이용ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ약ㄲㄲㄲㄲㄲㄲㄲㄲㄲㄲ곽ㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㅇ미ㅜㄹ머ㅜㅇㅁ우림ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
-                ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋasdffffffffffffffffffffffffffaㅁㄴㅇㄹㅁㄴㅇㄹㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
-                ㅁㄴㅇㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁaaaaaaaaaaaaaaaasddddddddddddㄴㄴㄴㄴㄴㄴㄴ
-              </div>
-              <div class="col-sm-offset-5 signUp_top_padding">
-                <!-- <button onclick="display()" class="btn btn-primary"> 다음 단계 > </button> -->
-                <button class="btn btn-primary"> 다음 단계 > </button>
-              </div>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 </template>
 
@@ -335,11 +357,17 @@
 
 export default {
   methods: {
-    showModal () {
+    showLoginModal () {
       this.$refs.Login.show()
     },
-    hideModal () {
+    showSighUpModal () {
+      this.$refs.SignUp.show()
+    },
+    hideLoginModal () {
       this.$refs.Login.hide()
+    },
+    hideSignUpModal () {
+      this.$refs.SignUp.hide()
     },
     showImageLoginStatus () {
       document.getElementById('imgLoginStatus').style.visibility = 'visible'
