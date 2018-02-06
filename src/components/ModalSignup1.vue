@@ -8,14 +8,14 @@
     <hr>
     <img src="static/assets/signImage/signup1/agreementTitle.png"
          alt="핸디즈 서비스 이용약관 및 개인정보 활용 동의 내용을  확인하였으며, 아래 내용에 동의합니다.">
-    <a class="btn-all-agree" @click='allAgree = !allAgree, agree1 = !agree1, agree2 = !agree2'>
+    <a class="btn-all-agree" @click='toggleAllAgree(), checkAllAgree()'>
       <img :src="allAgree ? allAgreeOn : allAgreeOff"
               alt="모두 동의">
     </a>
     <hr>
     <div class="font-notosans font-agreement">
       이용 약관 동의 (필수)
-      <a class="float-right" @click='agree1 = !agree1'>
+      <a class="float-right" @click='agree1 = !agree1, checkAllAgree()'>
         <img :src="agree1 ? agreeOn : agreeOff"
               alt="동의 하기">
       </a>
@@ -29,7 +29,7 @@
 
     <div class="font-notosans font-agreement">
       개인정보 취급 방침 동의(필수)
-      <a class="float-right" @click='agree2 = !agree2'>
+      <a class="float-right" @click='agree2 = !agree2, checkAllAgree()'>
         <img :src="agree2 ? agreeOn : agreeOff"
               alt="동의 하기">
       </a>
@@ -56,6 +56,26 @@ export default {
       allAgreeOff: 'static/assets/signImage/signup1/allAgreeOff.png',
       agreeOn: 'static/assets/signImage/signup1/agreeOn.png',
       agreeOff: 'static/assets/signImage/signup1/agreeOff.png'
+    }
+  },
+  methods: {
+    checkAllAgree () {
+      if (this.agree1 === true && this.agree2 === true) {
+        this.allAgree = true
+      } else {
+        this.allAgree = false
+      }
+    },
+    toggleAllAgree () {
+      if (this.allAgree === true) {
+        this.allAgree = false
+        this.agree1 = false
+        this.agree2 = false
+      } else {
+        this.allAgree = true
+        this.agree1 = true
+        this.agree2 = true
+      }
     }
   }
 }
