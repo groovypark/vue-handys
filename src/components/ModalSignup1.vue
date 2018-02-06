@@ -57,6 +57,7 @@ export default {
     }
   },
   methods: {
+    // 모두동의 버튼 조건 체크
     checkAllAgree () {
       if (this.agree1 === true && this.agree2 === true) {
         this.allAgree = true
