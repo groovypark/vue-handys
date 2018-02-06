@@ -64,7 +64,7 @@
       <modal-signup1></modal-signup1>
       <div class="center">
         <a>
-          <img src="static/assets/signImage/membershipAgreement/btnNext.png"
+          <img src="static/assets/signImage/signup1/btnNext.png"
               alt="다음 단계"
               @click="showSighUpModal2">
         </a>
@@ -77,12 +77,21 @@
         <button type="button" class="close" @click="hideSignUpModal2"><span aria-hidden="true">&times;</span></button>
       </div>
       <modal-signup2></modal-signup2>
+      <!-- 버튼 -->
+      <a class="btnBefore" @click="showSighUpModal1">
+        <img src="static/assets/signImage/signup2/btnBefore.png"
+            alt="이전 단계">
+      </a>
+      <a class="btnNext" @click="showSighUpModal3">
+        <img src="static/assets/signImage/signup2/btnNext.png"
+            alt="다음 단계">
+      </a>
     </b-modal>
 
     <!-- signUp3 Modal -->
     <b-modal ref="SignUp3" hide-header hide-footer>
       <div style="position:absolute; top:1em; right:1em;">
-        <button type="button" class="close" @click="hideSignUpModal2"><span aria-hidden="true">&times;</span></button>
+        <button type="button" class="close" @click="hideSignUpModal3"><span aria-hidden="true">&times;</span></button>
       </div>
       <modal-signup3></modal-signup3>
     </b-modal>
@@ -156,31 +165,6 @@
         </div>
       </div>
     </div>
-
-    <!-- signUp3 Modal -->
-    <div class="modal fade" id="signUp3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div style="padding: 8px 16px;">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          </div>
-          <div class="modal-body">
-            <h3><span style="font-weight:normal">WELCOME!</span> 환영합니다.</h3>
-            <h3 style="margin-top:0px"><b>핸디즈 회원가입</b></h3>
-            <div class="row">
-              <div class="col-md-4">1.이용 약관 동의</div>
-              <div class="col-md-4">2. 회원정보 입력</div>
-              <div class="col-md-4">3. 회원가입 완료</div>
-            </div>
-
-            <hr class="col-md-11" style="height:0.5dp; background: #ccc;">
-
-            <div style="text-align:center; padding:1em"> OOO 호스트님,<br/>회원 가입이 완료되었습니다.<br/>앞으로 핸디즈 서비스 이용이 가능합니다.</div>
-            <button class="btn btn-primary col-md-offset-5"> 다음 단계 > </button>
-          </div>
-        </div>
-      </div>
-    </div>
     
   </div>
 </template>
@@ -240,12 +224,18 @@ export default {
   bottom: 10%;
   right: 10%;
 }
-
 .login-footer {
   color: #464646;
   font-size: 12px;
   border:none;
 }
-/* Login Modal END */
 
+/* SignUp2 Modal START */
+.btnBefore {
+  margin-left:103px;
+}
+.btnNext {
+  float:right;
+  margin-right:103px;
+}
 </style>
