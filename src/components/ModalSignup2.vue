@@ -7,7 +7,7 @@
          alt="2.회원정보 입력">
     <hr>
     <b-form>
-      <!-- 이름 -->
+      <!---------- 이름 ---------->
       <b-form-group>
         <label for="name">
           <img src="static/assets/signImage/signup2/name.png"
@@ -16,7 +16,7 @@
           <input class="input" type="text" name="name">
           <div class="err-text font-notosans">필수 항목입니다.</div>
       </b-form-group>
-      <!-- 전화번호 -->
+      <!---------- 전화번호 ---------->
       <b-form-group>
         <label for="phoneNumber">
           <img src="static/assets/signImage/signup2/phone.png"
@@ -25,7 +25,7 @@
           <input class="input" type="tel" name="phoneNumber" placeholder="휴대전화 번호를 입력해 주세요.">
           <div class="err-text font-notosans">필수 항목입니다.</div>
       </b-form-group>
-      <!-- 전화번호 인증 -->
+      <!---------- 전화번호 인증 ---------->
       <b-form-group>
         <label for="phoneNumberCheck">
           <img src="static/assets/signImage/signup2/phoneNum.png"
@@ -33,10 +33,10 @@
         </label>
         <span style="float:right;">
           <a style="margin-right:6px;">
-            <img src="static/assets/signImage/signup2/phoneNumOff.png"
-              alt="인증번호 받기">
+            <img v-bind:src="btnUrl"
+              alt="인증번호 받기" @click="changeBtn()">
           </a>
-          <a>
+          <a ref="resend" v-bind:style="visibility">
             <img src="static/assets/signImage/signup2/resendOff.png"
               alt="재발송">
           </a>
@@ -44,7 +44,7 @@
         <input class="input" style="width:191px; margin-right:8px;" type="text" name="phoneNumberCheck" placeholder="문자로 받은 인증번호 6자리 입력해 주세요.">
         <div class="err-text font-notosans">인증코드를 발송하였습니다.</div>
       </b-form-group>
-      <!-- 아이디 -->
+      <!---------- 아이디 ---------->
       <b-form-group>
         <label for="id">
           <img src="static/assets/signImage/signup2/id.png"
@@ -53,7 +53,7 @@
         <input class="input" type="email" name="id" placeholder="E-mail 주소를 입력해 주세요.">
         <div class="err-text font-notosans">정확한 E-mail 주소를 입력해 주세요.</div>
       </b-form-group>
-      <!-- 비밀번호 -->
+      <!---------- 비밀번호 ---------->
       <b-form-group>
         <label for="password">
           <img src="static/assets/signImage/signup2/password.png"
@@ -62,7 +62,7 @@
         <input class="input" type="text" name="password" placeholder="">
         <div class="err-text font-notosans">문자와 숫자 조합으로 8자 이상 입력해 주세요.</div>
       </b-form-group>
-      <!-- 비밀번호 확인 -->
+      <!---------- 비밀번호 확인 ---------->
       <b-form-group>
         <label for="passwordCheck">
           <img src="static/assets/signImage/signup2/checkPw.png"
@@ -71,7 +71,7 @@
         <input class="input" type="text" name="passwordCheck" placeholder="">
         <div class="err-text font-notosans">비밀번호가 일치하지 않습니다.</div>
       </b-form-group>
-      <!-- 성별 -->
+      <!---------- 성별  ---------->
       <b-form-group>
         <label for="gender">
           <img src="static/assets/signImage/signup2/gender.png"
@@ -81,7 +81,7 @@
           <input class="radio-gender" name="gender" type="radio" v-bind:value="gender.value"> {{ gender.text }}
         </span>
       </b-form-group>
-      <!-- 연령대 -->
+      <!---------- 연령대 ---------->
       <b-form-group>
         <label for="age" style="float:left;">
           <img src="static/assets/signImage/signup2/age.png"
@@ -100,7 +100,7 @@
             </tr>
         </table>
       </b-form-group>
-      <!-- 호스팅 지역 -->
+      <!---------- 호스팅 지역 ---------->
       <form style="margin-top: 23px; margin-bottom:30px">
         <label for="local" style="margin-right:32px;">
           <img src="static/assets/signImage/signup2/local.png"
@@ -118,6 +118,8 @@ export default {
   name: 'ModalSignup1',
   data: function () {
     return {
+      visibility: 'visibility:hidden;',
+      btnUrl: 'static/assets/signImage/signup2/phoneNumOff.png',
       genders: [
         { text: '남성', value: 'male' },
         { text: '여성', value: 'femal' }
@@ -138,6 +140,12 @@ export default {
         { text: '제주', value: 'jeju' },
         { text: '그 외', value: 'etc' }
       ]
+    }
+  },
+  methods: {
+    changeBtn () {
+      this.visibility = 'visibility:visible;'
+      this.btnUrl = 'static/assets/signImage/signup2/verifyOff.png'
     }
   }
 }
