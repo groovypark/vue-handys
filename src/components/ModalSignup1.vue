@@ -43,8 +43,6 @@
   </div>
 </template>
 <script>
-
-console.log(this.agree2)
 export default {
   name: 'ModalSignup1',
   data: function () {
