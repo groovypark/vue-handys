@@ -6,138 +6,86 @@
         <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
         <b-navbar-brand href="#">Handys</b-navbar-brand>
         <b-collapse is-nav id="nav_collapse">
-        
-          <b-navbar-nav>
-            <b-nav-item href="#">Link</b-nav-item>
-          </b-navbar-nav>
-
           <!-- Right aligned nav items -->
           <b-navbar-nav class="ml-auto">
             <b-nav-item @click="showLoginModal" href="#">로그인</b-nav-item>
-            <b-nav-item @click="showSighUpModal" href="#">회원가입</b-nav-item>
-            <b-nav-item href="#">Link</b-nav-item>
+            <b-nav-item @click="showSighUpModal1" href="#">회원가입1</b-nav-item>
+            <b-nav-item @click="showSighUpModal2" href="#">회원가입2</b-nav-item>
+            <b-nav-item @click="showSighUpModal3" href="#">회원가입3</b-nav-item>
           </b-navbar-nav>
-
         </b-collapse>
       </b-navbar>
     </div>
     <!-- Navbar end -->
 
     <!-- Login modal -->
-    <div>
-      <b-modal ref="Login" hide-header hide-footer>
-        <div style="height:0.6em; padding: 4px 8px;">
-          <button type="button" class="close" @click="hideLoginModal"><span aria-hidden="true">&times;</span></button>
-        </div>
-
-        <b-form style="padding:30px;">
-
-          <b-form-group>
-            <label for="inputId">
-              <img src="/static/assets/signImage/login/id.png">
-            </label>
-            <input type="email" id="inputId" placeholder="이메일 주소" class="login-input">
-          </b-form-group>
-          <b-form-group>
-            <label for="inputPassword">
-              <img src="/static/assets/signImage/login/password.png">
-            </label>
-            <input type="password" id="inputPassword" placeholder="비밀 번호" class="login-input">
-          </b-form-group>
-
-          <input type="checkbox">
-          <a class="login-footer" @mouseover="showImageLoginStatus" @mouseleave="hideImageLoginStatus">
-            로그인 상태 유지
-          </a>
-          <div style="float:right">
-            <a style="color: #464646; font-size:12px;">아이디/비밀번호 찾기</a>
-            <a style="color: #464646; font-size:12px;"> 회원가입</a>
-          </div>
-          <!-- 로그인 버튼 -->
-          <div style="float:right;">
-            <b-btn class="btnModal" type="submit" data-dismiss="modal" @click="hideLoginModal" style="position:absolute; left:60%; bottom:10%">
-              <img src="/static/assets/signImage/login/btnLogin.png">
-            </b-btn>
-          </div>
-          <!-- 로그인 상태 유지 tooltip 이미지-->
-          <img id="imgLoginStatus" style="visibility:hidden; position:relative;" src="/static/assets/signImage/login/loginStatus.png" alt="Login status image">
-
-        </b-form>
-      </b-modal>
-    </div>
-
-    <!-- signUp Modal -->
-    <div>
-      <b-modal ref="SignUp" hide-header hide-footer>
-        <div style="height:0.6em; padding: 4px 8px;">
-          <button type="button" class="close" @click="hideSignUpModal"><span aria-hidden="true">&times;</span></button>
-        </div>
-        <img src="static/assets/signImage/membershipAgreement/welcome.png"></img>
-        <img src="static/assets/signImage/membershipAgreement/agreementHeader.png"></img>
-        <!-- 로그인 버튼 -->
-          <div style="float:right;">
-            <b-btn class="btnModal" type="submit" data-dismiss="modal" @click="hideLoginModal" style="position:absolute; left:60%; bottom:10%">
-              <img src="/static/assets/signImage/login/btnLogin.png">
-            </b-btn>
-          </div>
-      </b-modal>
-    </div>
-
-    <!-- signUp Modal -->
-    <!--
-    <div class="modal fade" id="signUp" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div style="padding: 8px 16px;">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          </div>
-          <div class="">
-            <img src="static/assets/signImage/membershipAgreement/welcome.png"></img>
-            <div class="row">
-              <div class="col-md-4">1.이용 약관 동의</div>
-              <div class="col-md-4">2. 회원정보 입력</div>
-              <div class="col-md-4">3. 회원가입 완료</div>
-            </div>
-
-            <hr class="col-md-11" style="height:0.5dp; background: #ccc;">
-
-            <div class="row">
-                <div class="col-md-10">
-                  핸디즈 서비스 이용약관 및 개인정보 활용 동의 내용을<br/>
-                  확인하였으며, 아래 내용에 동의합니다.
-                </div>
-                <div class="sinUp_right"><button>모두동의 ></button></div>
-            </div>
-
-            <hr class="col-md-11" style="height:0.5dp; background: #ccc;">
-
-            <div class="row">
-              <div class="col-md-9">이용 약관 동의(필수)</div>
-              <div class="sinUp_right"><button>동의하기 ></button></div>
-            </div>
-            <div class="divSignUp" style="overflow:scroll;">
-              이용ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ약ㄲㄲㄲㄲㄲㄲㄲㄲㄲㄲ곽ㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㅇ미ㅜㄹ머ㅜㅇㅁ우림ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
-              ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋasdffffffffffffffffffffffffffaㅁㄴㅇㄹㅁㄴㅇㄹㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
-              ㅁㄴㅇㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄴㄴㄴㄴㄴㄴㄴ
-            </div>
-            
-            <div class="row signUp_top_padding">
-                <div class="col-md-10">개인정보 취급 방침 동의(필수)</div>
-                <div class="sinUp_right"><button>동의하기 ></button></div>
-              </div>
-              <div class="divSignUp" style="overflow:scroll;">
-                이용ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ약ㄲㄲㄲㄲㄲㄲㄲㄲㄲㄲ곽ㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㅇ미ㅜㄹ머ㅜㅇㅁ우림ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
-                ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋasdffffffffffffffffffffffffffaㅁㄴㅇㄹㅁㄴㅇㄹㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
-                ㅁㄴㅇㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁaaaaaaaaaaaaaaaasddddddddddddㄴㄴㄴㄴㄴㄴㄴ
-              </div>
-              <div class="col-sm-offset-5 signUp_top_padding">
-                <button class="btn btn-primary"> 다음 단계 > </button>
-              </div>
-          </div>
-        </div>
+    <b-modal ref="Login" hide-header hide-footer>
+      <div style="position:absolute; top:1em; right:1em;">
+        <button type="button" class="close" @click="hideLoginModal"><span aria-hidden="true">&times;</span></button>
       </div>
-    </div>
-    -->
+      <b-form style="padding:30px;">
+        <b-form-group>
+          <label for="inputId">
+            <img src="/static/assets/signImage/login/id.png">
+          </label>
+          <input type="email" id="inputId" placeholder="이메일 주소" class="input">
+        </b-form-group>
+        <b-form-group>
+          <label for="inputPassword">
+            <img src="/static/assets/signImage/login/password.png">
+          </label>
+          <input type="password" id="inputPassword" placeholder="비밀 번호" class="input">
+        </b-form-group>
+
+        <input type="checkbox">
+        <a class="login-footer" @mouseover="showImageLoginStatus" @mouseleave="hideImageLoginStatus">
+          로그인 상태 유지
+        </a>
+        <div class="float-right">
+          <button class="login-footer">아이디/비밀번호 찾기</button>
+          <button class="login-footer" @click="showSighUpModal1">회원가입</button>
+        </div>
+        <!-- 로그인 버튼 -->
+        <div class="float-right">
+          <b-btn class="btnModal" type="submit" data-dismiss="modal" @click="hideLoginModal">
+            <img src="/static/assets/signImage/login/btnLogin.png">
+          </b-btn>
+        </div>
+        <!-- 로그인 상태 유지 tooltip 이미지-->
+        <img id="imgLoginStatus" style="visibility:hidden; position:relative;" src="/static/assets/signImage/login/loginStatus.png" alt="Login status image">
+      </b-form>
+    </b-modal>
+
+    <!-- signUp1 Modal -->
+    <b-modal ref="SignUp1" hide-header hide-footer>
+      <div style="position:absolute; top:1em; right:1em;">
+        <button type="button" class="close" @click="hideSignUpModal1"><span aria-hidden="true">&times;</span></button>
+      </div>
+      <modal-signup1></modal-signup1>
+      <div class="center">
+        <a>
+          <img src="static/assets/signImage/membershipAgreement/btnNext.png"
+              alt="다음 단계"
+              @click="showSighUpModal2">
+        </a>
+      </div>
+    </b-modal>
+
+    <!-- signUp2 Modal -->
+    <b-modal ref="SignUp2" hide-header hide-footer>
+      <div style="position:absolute; top:1em; right:1em;">
+        <button type="button" class="close" @click="hideSignUpModal2"><span aria-hidden="true">&times;</span></button>
+      </div>
+      <modal-signup2></modal-signup2>
+    </b-modal>
+
+    <!-- signUp3 Modal -->
+    <b-modal ref="SignUp3" hide-header hide-footer>
+      <div style="position:absolute; top:1em; right:1em;">
+        <button type="button" class="close" @click="hideSignUpModal2"><span aria-hidden="true">&times;</span></button>
+      </div>
+      <modal-signup3></modal-signup3>
+    </b-modal>
 
     <!-- emailCode Modal -->
     <div class="modal fade" id="emailCode" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -233,142 +181,44 @@
         </div>
       </div>
     </div>
-
-    <!-- signUp2 Modal -->
-    <div class="modal fade" id="signUp2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div style="padding: 8px 16px;">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          </div>
-          <div class="modal-body">
-            <h3><span style="font-weight:normal">WELCOME!</span> 환영합니다.</h3>
-            <h3 style="margin-top:0px"><b>핸디즈 회원가입</b></h3>
-            <div class="row">
-              <div class="col-md-4">1.이용 약관 동의</div>
-              <div class="col-md-4">2. 회원정보 입력</div>
-              <div class="col-md-4">3. 회원가입 완료</div>
-            </div>
-
-            <hr class="col-md-11" style="height:0.5dp; background: #ccc;">
-
-            <form class="form-horizontal" action=" " method="post">
-              <!-- 이름 -->
-              <div class="form-group">
-                <label for="name" class="col-sm-2 control-label">이름</label>
-                <div class="col-sm-9">
-                  <input type="text" class="form-control" name="name">
-                  <span style="color:red">필수 항목입니다</span>
-                </div>
-              </div>
-              <!-- 전화번호 -->
-              <div class="form-group">
-                <label for="phoneNumber" class="col-sm-2 control-label">전화번호</label>
-                <div class="col-sm-9">
-                  <input type="number" class="form-control" name="phoneNumber" placeholder="휴대전화 번호를 입력해 주세요">
-                  <span style="color:red">필수 항목입니다</span>
-                </div>
-              </div>
-              <!-- 전화번호인증 -->
-              <div class="form-group">
-                <label for="phoneNumberCheck" class="col-sm-2 control-label" style="width:115px;">전화번호 인증</label>
-                <div class="col-sm-9">
-                  <div class="row">
-                    <div style="width:20em" class="col-xs-8">
-                      <input type="number" class="form-control" name="phoneNumberCheck" placeholder="문자로 받은 인증번호 6자리 입력해 주세요">
-                    </div>
-                    <div style="width:10em" class="col-xs-offset-7"><button>인증번호 받기 ></button></div>
-                  </div>
-                  <span style="color:red">인증코드를 발송하였습니다</span>
-                </div>
-              </div>
-              <!-- 아이디 -->
-              <div class="form-group">
-                <label for="id" class="col-sm-2 control-label">아이디</label>
-                <div class="col-sm-9">
-                  <input type="email" class="form-control" name="id" placeholder="E-mail 주소를 입력해 주세요">
-                  <span style="color:red">정확한 E-mail 주소를 입력해 주세요</span>
-                </div>
-              </div>
-              <!-- 비밀번호 -->
-              <div class="form-group">
-                <label for="password" class="col-sm-2 control-label">비밀번호</label>
-                <div class="col-sm-9">
-                  <input type="text" class="form-control" name="password" placeholder="">
-                  <span style="color:red">문자와 숫자 조합으로 8자 이상 입력해 주세요</span>
-                </div>
-              </div>
-              <!-- 비밀번호 확인 -->
-              <div class="form-group">
-                <label for="passwordCheck" class="col-sm-2 control-label">비밀번호 확인</label>
-                <div class="col-sm-9">
-                  <input type="text" class="form-control" name="passwordCheck" placeholder="">
-                  <span style="color:red">비밀번호가 일치하지 않습니다.</span>
-                </div>
-              </div>
-              <!-- 성별 -->
-              <div class="form-group">
-                <label for="gender" class="col-sm-2 control-label">성별</label>
-                <div class="col-sm-9">
-                  <input type="radio" name="gender"> 남성
-                  <input type="radio" name="gender"> 여성
-                </div>
-              </div>
-              <!-- 성별 -->
-              <div class="form-group">
-                <label for="gender" class="col-sm-2 control-label">연령대</label>
-                <div class="col-sm-9">
-                  <input type="radio" name="age"> 10대 이하
-                  <input type="radio" name="age"> 20대
-                  <input type="radio" name="age"> 30대
-                  <input type="radio" name="age"> 40대
-                  <input type="radio" name="age"> 50대
-                  <input type="radio" name="age"> 60대 이상
-                </div>
-              </div>
-              <!-- 성별 -->
-              <div class="form-group">
-                <label for="gender" class="col-sm-2 control-label">호스팅 지역</label>
-                <div class="col-sm-9">
-                  <input type="radio" name="place"> 서울
-                  <input type="radio" name="place"> 부산
-                  <input type="radio" name="place"> 제주
-                  <input type="radio" name="place"> 그 외
-                </div>
-              </div>
-
-              <!-- 버튼 -->
-              <div class="form-group">
-                <div class="col-sm-offset-4 col-sm-9">
-                  <button class="btn btn-primary" data-dismiss="modal"> 이전 단계 > </button>
-                  <button type="submit" class="btn btn-primary" data-dismiss="modal"> 다음 단계 > </button>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
     
   </div>
 </template>
 
 <script>
+import ModalLogin from './ModalLogin.vue'
+import ModalSignup1 from './ModalSignup1.vue'
+import ModalSignup2 from './ModalSignup2.vue'
+import ModalSignup3 from './ModalSignup3.vue'
 
 export default {
+  components: { ModalLogin, ModalSignup1, ModalSignup2, ModalSignup3 },
   methods: {
     showLoginModal () {
       this.$refs.Login.show()
     },
-    showSighUpModal () {
-      this.$refs.SignUp.show()
+    showSighUpModal1 () {
+      this.$refs.SignUp1.show()
+    },
+    showSighUpModal2 () {
+      this.$refs.SignUp2.show()
+    },
+    showSighUpModal3 () {
+      this.$refs.SignUp3.show()
     },
     hideLoginModal () {
       this.$refs.Login.hide()
     },
-    hideSignUpModal () {
-      this.$refs.SignUp.hide()
+    hideSignUpModal1 () {
+      this.$refs.SignUp1.hide()
     },
+    hideSignUpModal2 () {
+      this.$refs.SignUp2.hide()
+    },
+    hideSignUpModal3 () {
+      this.$refs.SignUp3.hide()
+    },
+    // 로그인 상태 유지 tooltip
     showImageLoginStatus () {
       document.getElementById('imgLoginStatus').style.visibility = 'visible'
     },
@@ -381,45 +231,21 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1, h2 {
-  font-weight: normal;
-  font-family: 'Noto Sans KR', sans-serif;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
-
+/* Login Modal START */
 .btnModal {
   background: none;
   border: none;
   padding: 0;
+  position: absolute;
+  bottom: 10%;
+  right: 10%;
 }
 
-.login-input {
-  width: 75%;
-  height: 23px;
-  float: right;
-  padding: 6px 11px;
-  box-sizing: border-box;
-  border: none;
-  background-color: #d5d5d5;
-  color: #464646;
-  font-size: 10px;
-}
 .login-footer {
   color: #464646;
   font-size: 12px;
+  border:none;
 }
+/* Login Modal END */
 
-b-modal .modal-content {
-  width: 600px;
-}
 </style>
