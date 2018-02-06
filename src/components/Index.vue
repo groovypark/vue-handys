@@ -51,7 +51,7 @@ export default {
     --gray: #f3f3f3;
 }
 .input {
-  width: 75%;
+  width: 420px;
   height: 23px;
   float: right;
   padding: 6px 11px;
@@ -59,6 +59,6 @@ export default {
   border: none;
   background-color: var(--gray);
   color: #464646;
-  font-size: 10px;
+  font-size: 9px;
 }
 </style>
