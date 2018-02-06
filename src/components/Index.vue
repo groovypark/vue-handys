@@ -24,21 +24,41 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h1, h2 {
-  font-weight: normal;
+<style>
+@media (min-width: 576px) {
+  div.modal-dialog {
+      max-width: 598px;
+      margin: 30px auto;
+  }
+}
+.modal-dialog {
+  width: 598px;
+}
+.modal-body {
+  padding: 36px 34px 25px 34px;
+  text-align: left;
+}
+.font-notosans {
   font-family: 'Noto Sans KR', sans-serif;
 }
-ul {
-  list-style-type: none;
-  padding: 0;
+.float-right {
+  float: right;
 }
-li {
-  display: inline-block;
-  margin: 0 10px;
+.center {
+  text-align: center;
 }
-a {
-  color: #42b983;
+:root {
+    --gray: #f3f3f3;
+}
+.input {
+  width: 75%;
+  height: 23px;
+  float: right;
+  padding: 6px 11px;
+  box-sizing: border-box;
+  border: none;
+  background-color: var(--gray);
+  color: #464646;
+  font-size: 10px;
 }
 </style>
