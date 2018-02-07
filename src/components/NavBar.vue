@@ -24,7 +24,7 @@
 
     <!-- Login modal -->
     <b-modal ref="Login" hide-header hide-footer>
-      <div style="position:absolute; top:1em; right:1em;">
+      <div class="btn-close">
         <button type="button" class="close" @click="hideLoginModal"><span aria-hidden="true">&times;</span></button>
       </div>
       <b-form>
@@ -41,21 +41,21 @@
           <input type="password" id="inputPassword" placeholder="비밀 번호" class="input">
         </b-form-group>
 
-        <span class="login-footer">
-          <input type="checkbox">
+        <div class="login-footer">
+          <input class="cursor" type="checkbox">
           <a @mouseover="showImageLoginStatus" @mouseleave="hideImageLoginStatus">
             로그인 상태 유지
           </a>
-        </span>
-        <span class="float-right login-footer">
-          <a>아이디/비밀번호 찾기 &nbsp</a>
-          <a @click="showSighUpModal1">회원가입</a>
-        </span>
+          <span class="float-right">
+            <a class="cursor" @click="showFindIdPw">아이디/비밀번호 찾기 &nbsp</a>
+            <a class="cursor" @click="showSighUpModal1">회원가입</a>
+          </span>
+        </div>
         <!-- 로그인 버튼 -->
         <div class="float-right">
-          <b-btn class="btnModal" type="submit" data-dismiss="modal" @click="hideLoginModal">
+          <a class="btnModal cursor" href="/" @click="hideLoginModal">
             <img src="/static/assets/signImage/login/btnLogin.png">
-          </b-btn>
+          </a>
         </div>
         <!-- 로그인 상태 유지 tooltip 이미지-->
         <img id="imgLoginStatus" class="img-login-status" src="/static/assets/signImage/login/loginStatus.png" alt="Login status image">
@@ -64,22 +64,20 @@
 
     <!-- signUp1 Modal -->
     <b-modal ref="SignUp1" hide-header hide-footer>
-      <div style="position:absolute; top:1em; right:1em;">
+      <div class="btn-close">
         <button type="button" class="close" @click="hideSignUpModal1"><span aria-hidden="true">&times;</span></button>
       </div>
       <modal-signup1></modal-signup1>
       <div class="center">
         <a>
-          <img src="static/assets/signImage/signup1/btnNext.png"
-              alt="다음 단계"
-              @click="showSighUpModal2">
+          <img class="cursor" src="static/assets/signImage/signup1/btnNext.png" alt="다음 단계" @click="showSighUpModal2">
         </a>
       </div>
     </b-modal>
 
     <!-- signUp2 Modal -->
     <b-modal ref="SignUp2" hide-header hide-footer>
-      <div style="position:absolute; top:1em; right:1em;">
+      <div class="btn-close">
         <button type="button" class="close" @click="hideSignUpModal2"><span aria-hidden="true">&times;</span></button>
       </div>
       <modal-signup2></modal-signup2>
@@ -96,7 +94,7 @@
 
     <!-- signUp3 Modal -->
     <b-modal ref="SignUp3" hide-header hide-footer>
-      <div style="position:absolute; top:1em; right:1em;">
+      <div class="btn-close">
         <button type="button" class="close" @click="hideSignUpModal3"><span aria-hidden="true">&times;</span></button>
       </div>
       <modal-signup3></modal-signup3>
@@ -104,7 +102,7 @@
 
     <!-- FindIdPw Modal -->
     <b-modal ref="FindIdPw" hide-header hide-footer>
-      <div style="position:absolute; top:1em; right:1em;">
+      <div class="btn-close">
         <button type="button" class="close" @click="hideFindIdPw"><span aria-hidden="true">&times;</span></button>
       </div>
       <find-id-pw></find-id-pw>
@@ -116,7 +114,7 @@
 
     <!-- Phone Modal -->
     <b-modal ref="Phone" hide-header hide-footer>
-      <div style="position:absolute; top:1em; right:1em;">
+      <div class="btn-close">
         <button type="button" class="close" @click="hidePhone"><span aria-hidden="true">&times;</span></button>
       </div>
       <phone></phone>
@@ -124,7 +122,7 @@
 
     <!-- Email Modal -->
     <b-modal ref="Email" hide-header hide-footer>
-      <div style="position:absolute; top:1em; right:1em;">
+      <div class="btn-close">
         <button type="button" class="close" @click="hideEmail"><span aria-hidden="true">&times;</span></button>
       </div>
       <email></email>
@@ -132,7 +130,7 @@
 
     <!-- CheckId Modal -->
     <b-modal ref="CheckId" hide-header hide-footer>
-      <div style="position:absolute; top:1em; right:1em;">
+      <div class="btn-close">
         <button type="button" class="close" @click="hideCheckId"><span aria-hidden="true">&times;</span></button>
       </div>
       <check-id></check-id>
@@ -215,6 +213,11 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.btn-close {
+  position:absolute;
+  top:1em;
+  right:1em;
+}
 /* Login Modal */
 .btnModal {
   background: none;
@@ -222,7 +225,7 @@ export default {
   padding: 0;
   position: absolute;
   bottom: 10%;
-  right: 10%;
+  right: 5%;
 }
 .login-footer {
   color: #464646;
