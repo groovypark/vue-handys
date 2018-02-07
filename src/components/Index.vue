@@ -61,4 +61,7 @@ export default {
   color: #464646;
   font-size: 9px;
 }
+.cursor {
+  cursor: pointer;
+}
 </style>
