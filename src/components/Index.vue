@@ -52,14 +52,14 @@ export default {
 }
 .input {
   width: 420px;
-  height: 23px;
+  height: 24px;
   float: right;
   padding: 6px 11px;
   box-sizing: border-box;
   border: none;
   background-color: var(--gray);
   color: #464646;
-  font-size: 9px;
+  font-size: 13px;
 }
 .cursor {
   cursor: pointer;

@@ -48,7 +48,7 @@
             로그인 상태 유지
           </a>
           <span class="float-right">
-            <a class="cursor" @click="showFindIdPw">아이디/비밀번호 찾기 &nbsp</a>
+            <a class="cursor" @click="showFindIdPw">아이디/비밀번호 찾기 &nbsp;</a>
             <a class="cursor" @click="showSignUpModal1">회원가입</a>
           </span>
         </div>
@@ -135,7 +135,7 @@
       <email></email>
       <!-- 버튼 -->
       <div class="btn-email cursor">
-        <img @click="AlertResend" src="static/assets/signImage/email/btnResend.png" alt="재발송">&nbsp &nbsp
+        <img @click="AlertResend" src="static/assets/signImage/email/btnResend.png" alt="재발송">&nbsp; &nbsp;
         <img @click="showSetPw" src="static/assets/signImage/btnConfirm.png" alt="확인">
       </div>
     </b-modal>

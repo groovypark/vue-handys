@@ -6,7 +6,7 @@
          src="static/assets/signImage/checkId/text.png" 
          alt="인증번호가 도착하지 않았을 경우, 스팸함이나 차단 설정을 확인해주세요. 확인 후에도 인증번호가 도착하지 않을 경우 '재발송'을 눌러주세요.">
 
-    <div>회원님의 아이디는 &nbsp<span><b>euge******@gm**l.com</b></span>&nbsp 입니다.</div>
+    <div>회원님의 아이디는 &nbsp;<span><b>euge******@gm**l.com</b></span>&nbsp; 입니다.</div>
     
     <!-- 확인 버튼 -->
     <a href="/"><img class="confirm" src="static/assets/signImage/btnConfirm.png" alt="확인"></a>
