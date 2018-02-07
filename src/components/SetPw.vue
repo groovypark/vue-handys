@@ -6,8 +6,8 @@
          src="static/assets/signImage/setPw/text.png" 
          alt="새로운 비밀번호를 입력해 주세요. 문자와숫자를조합한8자이상이어야합니다.">
 
-    <input class="input" type="text" id="password" placeholder="비밀번호 입력.">
-    <input class="input" type="text" id="password" placeholder="비밀번호 확인.">
+    <input class="input" type="text" id="password" placeholder="비밀번호 입력">
+    <input class="input" type="text" id="password" placeholder="비밀번호 확인">
   </div>
 </template>
 <script>

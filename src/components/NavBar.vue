@@ -124,7 +124,7 @@
       </div>
       <phone></phone>
       <!-- 확인 버튼 -->
-      <img class="confirm" src="static/assets/signImage/btnConfirm.png" alt="확인">
+      <img @click="showSetPw" class="confirm cursor" src="static/assets/signImage/btnConfirm.png" alt="확인">
     </b-modal>
 
     <!-- Email Modal -->
