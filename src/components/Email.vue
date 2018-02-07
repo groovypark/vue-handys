@@ -11,11 +11,7 @@
     <img class="input-title" src="static/assets/signImage/email/input-title.png" alt="이메일로 받은 인증 번호를 입력해 주세요.">
     <input class="input" type="tel" id="emailCode" placeholder="인증번호를 입력해 주세요.">
     <div class="err-text font-notosans">인증번호가 일치하지 않습니다.</div>
-    <!-- 버튼 -->
-    <div class="btn">
-      <img src="static/assets/signImage/email/btnResend.png" alt="재발송">&nbsp &nbsp
-      <img src="static/assets/signImage/btnConfirm.png" alt="확인">
-    </div>
+    
   </div>  
 </template>
 <script>
@@ -47,9 +43,5 @@ hr {
 	letter-spacing: -0.5px;
 	text-align: left;
 	color: #e60012;
-}
-.btn {
-  float: right;
-  padding: 0;
 }
 </style>
