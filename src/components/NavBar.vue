@@ -105,9 +105,13 @@
       <div class="btn-close">
         <button type="button" class="close" @click="hideFindIdPw"><span aria-hidden="true">&times;</span></button>
       </div>
-      <find-id-pw></find-id-pw>
-      <div class="btn">
-        <img src="static/assets/signImage/findIdPw/btnEmail.png" alt="이메일 인증">
+      <find-id></find-id>
+
+      <img class="btnConfirm cursor" @click="showCheckId" src="static/assets/signImage/btnConfirm.png" alt="확인">
+
+      <find-pw></find-pw>
+      <div class="btn cursor">
+        <img @click="showEmail" src="static/assets/signImage/findIdPw/btnEmail.png" alt="이메일 인증">
         <img @click="showPhone" src="static/assets/signImage/findIdPw/btnPhone.png" alt="휴대전화 인증">
       </div>
     </b-modal>
@@ -118,6 +122,8 @@
         <button type="button" class="close" @click="hidePhone"><span aria-hidden="true">&times;</span></button>
       </div>
       <phone></phone>
+      <!-- 확인 버튼 -->
+      <img class="confirm" src="static/assets/signImage/btnConfirm.png" alt="확인">
     </b-modal>
 
     <!-- Email Modal -->
@@ -144,13 +150,14 @@ import ModalLogin from './ModalLogin.vue'
 import ModalSignup1 from './ModalSignup1.vue'
 import ModalSignup2 from './ModalSignup2.vue'
 import ModalSignup3 from './ModalSignup3.vue'
-import FindIdPw from './FindIdPw.vue'
+import FindId from './FindId.vue'
+import FindPw from './FindPw.vue'
 import Phone from './Phone.vue'
 import Email from './Email.vue'
 import CheckId from './CheckId.vue'
 
 export default {
-  components: { ModalLogin, ModalSignup1, ModalSignup2, ModalSignup3, FindIdPw, Phone, Email, CheckId },
+  components: { ModalLogin, ModalSignup1, ModalSignup2, ModalSignup3, FindId, FindPw, Phone, Email, CheckId },
   methods: {
     // modal show, hide
     showLoginModal () {
@@ -254,5 +261,14 @@ div.btn {
   float: right;
   padding: 0;
   margin: 44px 0 27px 0;
+}
+.btnConfirm {
+  float: right;
+  margin: 13px 0 41px 0;
+}
+ /* Phone Modal */
+.confirm {
+  float: right;
+  margin-bottom: 10px;
 }
 </style>
