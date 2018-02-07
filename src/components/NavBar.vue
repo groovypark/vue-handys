@@ -9,9 +9,9 @@
           <!-- Right aligned nav items -->
           <b-navbar-nav class="ml-auto">
             <b-nav-item @click="showLoginModal">로그인</b-nav-item>
-            <b-nav-item @click="showSighUpModal1">회원가입1</b-nav-item>
-            <b-nav-item @click="showSighUpModal2">회원가입2</b-nav-item>
-            <b-nav-item @click="showSighUpModal3">회원가입3</b-nav-item>
+            <b-nav-item @click="showSignUpModal1">회원가입1</b-nav-item>
+            <b-nav-item @click="showSignUpModal2">회원가입2</b-nav-item>
+            <b-nav-item @click="showSignUpModal3">회원가입3</b-nav-item>
             <b-nav-item @click="showFindIdPw">찾기</b-nav-item>
             <b-nav-item @click="showPhone">핸드폰</b-nav-item>
             <b-nav-item @click="showEmail">이메일</b-nav-item>
@@ -48,7 +48,7 @@
           </a>
           <span class="float-right">
             <a class="cursor" @click="showFindIdPw">아이디/비밀번호 찾기 &nbsp</a>
-            <a class="cursor" @click="showSighUpModal1">회원가입</a>
+            <a class="cursor" @click="showSignUpModal1">회원가입</a>
           </span>
         </div>
         <!-- 로그인 버튼 -->
@@ -70,7 +70,7 @@
       <modal-signup1></modal-signup1>
       <div class="center">
         <a>
-          <img class="cursor" src="static/assets/signImage/signup1/btnNext.png" alt="다음 단계" @click="showSighUpModal2">
+          <img class="cursor" src="static/assets/signImage/signup1/btnNext.png" alt="다음 단계" @click="showSignUpModal2">
         </a>
       </div>
     </b-modal>
@@ -82,11 +82,11 @@
       </div>
       <modal-signup2></modal-signup2>
       <!-- 버튼 -->
-      <a class="btnBefore" @click="showSighUpModal1">
+      <a class="btnBefore cursor" @click="showSignUpModal1">
         <img src="static/assets/signImage/signup2/btnBefore.png"
             alt="이전 단계">
       </a>
-      <a class="btnNext" @click="showSighUpModal3">
+      <a class="btnNext cursor" @click="showSignUpModal3">
         <img src="static/assets/signImage/signup2/btnNext.png"
             alt="다음 단계">
       </a>
@@ -152,16 +152,17 @@ import CheckId from './CheckId.vue'
 export default {
   components: { ModalLogin, ModalSignup1, ModalSignup2, ModalSignup3, FindIdPw, Phone, Email, CheckId },
   methods: {
+    // modal show, hide
     showLoginModal () {
       this.$refs.Login.show()
     },
-    showSighUpModal1 () {
+    showSignUpModal1 () {
       this.$refs.SignUp1.show()
     },
-    showSighUpModal2 () {
+    showSignUpModal2 () {
       this.$refs.SignUp2.show()
     },
-    showSighUpModal3 () {
+    showSignUpModal3 () {
       this.$refs.SignUp3.show()
     },
     showFindIdPw () {
