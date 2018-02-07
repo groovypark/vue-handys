@@ -32,11 +32,11 @@
             alt="전화번호 인증">
         </label>
         <span style="float:right;">
-          <a style="margin-right:6px;">
+          <a class="cursor" style="margin-right:6px;">
             <img v-bind:src="btnUrl"
               alt="인증번호 받기" @click="changeBtn()">
           </a>
-          <a ref="resend" v-bind:style="visibility">
+          <a class="cursor" ref="resend" v-bind:style="visibility">
             <img src="static/assets/signImage/signup2/resendOff.png"
               alt="재발송">
           </a>
@@ -78,7 +78,7 @@
             alt="성별">
         </label>
         <span v-for="gender in genders" :key="gender.id">
-          <input class="radio-gender" name="gender" type="radio" v-bind:value="gender.value"> {{ gender.text }}
+          <input class="radio-gender cursor" name="gender" type="radio" v-bind:value="gender.value"> {{ gender.text }}
         </span>
       </b-form-group>
       <!---------- 연령대 ---------->
@@ -90,12 +90,12 @@
         <table style="margin-left:107px;">
             <tr>
               <td style="width:121px; height:46px; vertical-align:top;" v-for="age in ages1" :key="age.id">
-                <input  type="radio" name="age" v-bind:value="age.value"> {{ age.text }}
+                <input class="cursor" type="radio" name="age" v-bind:value="age.value"> {{ age.text }}
               </td>
             </tr>
             <tr>
               <td v-for="age in ages2" :key="age.id">
-                <input  type="radio" name="age" v-bind:value="age.value"> {{ age.text }}
+                <input class="cursor" type="radio" name="age" v-bind:value="age.value"> {{ age.text }}
               </td>
             </tr>
         </table>
@@ -107,7 +107,7 @@
             alt="호스팅 지역">
         </label>
         <span style="margin-right:73px;" v-for="local in locals" :key="local.id">
-          <input type="radio" name="local" v-bind:value="local.value"> {{ local.text }}
+          <input class="cursor" type="radio" name="local" v-bind:value="local.value"> {{ local.text }}
         </span>
       </form>
     </b-form>
