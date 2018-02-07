@@ -16,6 +16,7 @@
             <b-nav-item @click="showPhone">핸드폰</b-nav-item>
             <b-nav-item @click="showEmail">이메일</b-nav-item>
             <b-nav-item @click="showCheckId">아이디확인</b-nav-item>
+            <b-nav-item @click="showSetPw">비밀번호</b-nav-item>
           </b-navbar-nav>
         </b-collapse>
       </b-navbar>
@@ -132,6 +133,11 @@
         <button type="button" class="close" @click="hideEmail"><span aria-hidden="true">&times;</span></button>
       </div>
       <email></email>
+      <!-- 버튼 -->
+      <div class="btn-email cursor">
+        <img @click="AlertResend" src="static/assets/signImage/email/btnResend.png" alt="재발송">&nbsp &nbsp
+        <img @click="showSetPw" src="static/assets/signImage/btnConfirm.png" alt="확인">
+      </div>
     </b-modal>
 
     <!-- CheckId Modal -->
@@ -140,6 +146,16 @@
         <button type="button" class="close" @click="hideCheckId"><span aria-hidden="true">&times;</span></button>
       </div>
       <check-id></check-id>
+    </b-modal>
+
+    <!-- SetPw Modal -->
+    <b-modal ref="SetPw" hide-header hide-footer>
+      <div class="btn-close">
+        <button type="button" class="close" @click="hideSetPw"><span aria-hidden="true">&times;</span></button>
+      </div>
+      <set-pw></set-pw>
+      <!-- 확인 버튼 -->
+      <a href="/" @click="AlertSetPw"><img class="confirm cursor" src="static/assets/signImage/btnConfirm.png" alt="확인"></a>
     </b-modal>
     
   </div>
@@ -155,11 +171,12 @@ import FindPw from './FindPw.vue'
 import Phone from './Phone.vue'
 import Email from './Email.vue'
 import CheckId from './CheckId.vue'
+import SetPw from './SetPw.vue'
 
 export default {
-  components: { ModalLogin, ModalSignup1, ModalSignup2, ModalSignup3, FindId, FindPw, Phone, Email, CheckId },
+  components: { ModalLogin, ModalSignup1, ModalSignup2, ModalSignup3, FindId, FindPw, Phone, Email, CheckId, SetPw },
   methods: {
-    // modal show, hide
+    // show modal
     showLoginModal () {
       this.$refs.Login.show()
     },
@@ -184,6 +201,10 @@ export default {
     showCheckId () {
       this.$refs.CheckId.show()
     },
+    showSetPw () {
+      this.$refs.SetPw.show()
+    },
+    // hide modal
     hideLoginModal () {
       this.$refs.Login.hide()
     },
@@ -208,12 +229,22 @@ export default {
     hideCheckId () {
       this.$refs.CheckId.hide()
     },
+    hideSetPw () {
+      this.$refs.SetPw.hide()
+    },
     // 로그인 상태 유지 tooltip
     showImageLoginStatus () {
       document.getElementById('imgLoginStatus').style.visibility = 'visible'
     },
     hideImageLoginStatus () {
       document.getElementById('imgLoginStatus').style.visibility = 'hidden'
+    },
+    // alert
+    AlertSetPw () {
+      alert('비밀번호 설정 완료')
+    },
+    AlertResend () {
+      alert('재발송 되었습니다.')
     }
   }
 }
@@ -266,9 +297,16 @@ div.btn {
   float: right;
   margin: 13px 0 41px 0;
 }
+
  /* Phone Modal */
 .confirm {
   float: right;
   margin-bottom: 10px;
+}
+
+/* Email Modal */
+.btn-email {
+  float: right;
+  padding: 0;
 }
 </style>
