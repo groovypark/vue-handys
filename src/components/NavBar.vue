@@ -8,12 +8,14 @@
         <b-collapse is-nav id="nav_collapse">
           <!-- Right aligned nav items -->
           <b-navbar-nav class="ml-auto">
-            <b-nav-item @click="showLoginModal" href="#">로그인</b-nav-item>
-            <b-nav-item @click="showSighUpModal1" href="#">회원가입1</b-nav-item>
-            <b-nav-item @click="showSighUpModal2" href="#">회원가입2</b-nav-item>
-            <b-nav-item @click="showSighUpModal3" href="#">회원가입3</b-nav-item>
-            <b-nav-item @click="showFindIdPw" href="#">찾기</b-nav-item>
-            <b-nav-item @click="showPhone" href="#">핸드폰</b-nav-item>
+            <b-nav-item @click="showLoginModal">로그인</b-nav-item>
+            <b-nav-item @click="showSighUpModal1">회원가입1</b-nav-item>
+            <b-nav-item @click="showSighUpModal2">회원가입2</b-nav-item>
+            <b-nav-item @click="showSighUpModal3">회원가입3</b-nav-item>
+            <b-nav-item @click="showFindIdPw">찾기</b-nav-item>
+            <b-nav-item @click="showPhone">핸드폰</b-nav-item>
+            <b-nav-item @click="showEmail">이메일</b-nav-item>
+            <b-nav-item @click="showCheckId">아이디확인</b-nav-item>
           </b-navbar-nav>
         </b-collapse>
       </b-navbar>
@@ -106,6 +108,10 @@
         <button type="button" class="close" @click="hideFindIdPw"><span aria-hidden="true">&times;</span></button>
       </div>
       <find-id-pw></find-id-pw>
+      <div class="btn">
+        <img src="static/assets/signImage/findIdPw/btnEmail.png" alt="이메일 인증">
+        <img @click="showPhone" src="static/assets/signImage/findIdPw/btnPhone.png" alt="휴대전화 인증">
+      </div>
     </b-modal>
 
     <!-- Phone Modal -->
@@ -116,75 +122,21 @@
       <phone></phone>
     </b-modal>
 
-    <!-- emailCode Modal -->
-    <div class="modal fade" id="emailCode" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div style="padding: 8px 16px;">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          </div>
-          <div class="modal-body">
-            <h3>인증번호 입력</h3>
-
-            <hr class="col-md-11" style="height:0.5dp; background: #ccc;">
-
-            인증번호가 도착하지 않았을 경우, 스팸함이나 차단 설정을 확인해주세요.<br/>
-            확인 후에도 인증번호가 도착하지 않았을 경우, '재발송'을 눌러주세요.
-            <h4>회원가입 시 입력하신 <b>euge****@gmail.com</b> (으)로 인증 코드를 발송하였습니다.</h4>
-            <h4>이메일로 받은 인증 번호를 입력해 주세요</h4>
-            <form class="form-horizontal" action=" " method="post">
-              <div class="form-group">
-                <div class="col-sm-9">
-                  <input type="number" class="form-control" name="emailCode" placeholder="인증번호를 입력해 주세요">
-                  <span style="color:red">인증번호가 일치하지 않습니다.</span>
-                </div>
-                <div class="form-group">
-                  <div class="col-sm-offset-8 col-sm-9">
-                    <button class="btn btn-primary" data-dismiss="modal"> 재발송 > </button>
-                    <button type="submit" class="btn btn-primary" data-dismiss="modal"> 확인 > </button>
-                  </div>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
+    <!-- Email Modal -->
+    <b-modal ref="Email" hide-header hide-footer>
+      <div style="position:absolute; top:1em; right:1em;">
+        <button type="button" class="close" @click="hideEmail"><span aria-hidden="true">&times;</span></button>
       </div>
-    </div>
+      <email></email>
+    </b-modal>
 
-    <!-- phoneCode Modal -->
-    <div class="modal fade" id="phoneCode" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div style="padding: 8px 16px;">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          </div>
-          <div class="modal-body">
-            <h3>인증번호 입력</h3>
-
-            <hr class="col-md-11" style="height:0.5dp; background: #ccc;">
-
-            인증번호가 도착하지 않았을 경우, 스팸함이나 차단 설정을 확인해주세요.<br/>
-            확인 후에도 인증번호가 도착하지 않았을 경우, '재발송'을 눌러주세요.
-            <h4>회원가입 시 입력하신 <b>0106****789</b> (으)로 인증 코드를 발송하였습니다.</h4>
-            <h4>휴대전화로 받은 인증 번호를 입력해 주세요</h4>
-            <form class="form-horizontal" action=" " method="post">
-              <div class="form-group">
-                <div class="col-sm-9">
-                  <input type="number" class="form-control" name="phoneCode" placeholder="인증번호를 입력해 주세요">
-                  <span style="color:red">숫자만 입력 가능합니다</span>
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="col-sm-offset-8 col-sm-9">
-                  <button class="btn btn-primary" data-dismiss="modal"> 재발송 > </button>
-                  <button type="submit" class="btn btn-primary" data-dismiss="modal"> 확인 > </button>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
+    <!-- CheckId Modal -->
+    <b-modal ref="CheckId" hide-header hide-footer>
+      <div style="position:absolute; top:1em; right:1em;">
+        <button type="button" class="close" @click="hideCheckId"><span aria-hidden="true">&times;</span></button>
       </div>
-    </div>
+      <check-id></check-id>
+    </b-modal>
     
   </div>
 </template>
@@ -196,9 +148,11 @@ import ModalSignup2 from './ModalSignup2.vue'
 import ModalSignup3 from './ModalSignup3.vue'
 import FindIdPw from './FindIdPw.vue'
 import Phone from './Phone.vue'
+import Email from './Email.vue'
+import CheckId from './CheckId.vue'
 
 export default {
-  components: { ModalLogin, ModalSignup1, ModalSignup2, ModalSignup3, FindIdPw, Phone },
+  components: { ModalLogin, ModalSignup1, ModalSignup2, ModalSignup3, FindIdPw, Phone, Email, CheckId },
   methods: {
     showLoginModal () {
       this.$refs.Login.show()
@@ -218,6 +172,12 @@ export default {
     showPhone () {
       this.$refs.Phone.show()
     },
+    showEmail () {
+      this.$refs.Email.show()
+    },
+    showCheckId () {
+      this.$refs.CheckId.show()
+    },
     hideLoginModal () {
       this.$refs.Login.hide()
     },
@@ -236,6 +196,12 @@ export default {
     hidePhone () {
       this.$refs.Phone.hide()
     },
+    hideEmail () {
+      this.$refs.Email.hide()
+    },
+    hideCheckId () {
+      this.$refs.CheckId.hide()
+    },
     // 로그인 상태 유지 tooltip
     showImageLoginStatus () {
       document.getElementById('imgLoginStatus').style.visibility = 'visible'
@@ -249,7 +215,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-/* Login Modal START */
+/* Login Modal */
 .btnModal {
   background: none;
   border: none;
@@ -269,12 +235,20 @@ export default {
   position: relative;
   margin-left: 110px;
 }
-/* SignUp2 Modal START */
+
+/* SignUp2 Modal */
 .btnBefore {
   margin-left:103px;
 }
 .btnNext {
   float:right;
   margin-right:103px;
+}
+
+/* FindIdPw Modal */
+div.btn {
+  float: right;
+  padding: 0;
+  margin: 44px 0 27px 0;
 }
 </style>
