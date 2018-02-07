@@ -11,8 +11,6 @@
     <img class="input-title" src="static/assets/signImage/phone/input-title.png" alt="휴대전화로 받은 인증 번호를 입력해 주세요.">
     <input class="input" type="tel" id="phoneCode" placeholder="인증번호를 입력해 주세요.">
     <div class="err-text font-notosans">숫자만 입력 가능합니다.</div>
-    <!-- 확인 버튼 -->
-    <img class="confirm" src="static/assets/signImage/btnConfirm.png" alt="확인">
   </div>  
 </template>
 <script>
@@ -30,9 +28,6 @@ hr {
 }
 .text {
   margin: 15px 0 27px 0;
-}
-.confirm {
-  float: right;
 }
 .input-title {
   margin: 38px 0 15px 0;
