@@ -1,5 +1,5 @@
 <template>
-  <div class="ModalSignup1">
+  <div id="modal-signup1">
     <img src="static/assets/signImage/signup1/welcome.png"
          alt="WELCOME! 환영합니다. 핸디즈 회원가입">
     <img class="agreement-header"

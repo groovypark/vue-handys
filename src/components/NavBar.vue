@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="nav-bar">
     <!-- Navbar start -->
     <div>
       <b-navbar toggleable="md" type="dark" variant="info" fixed="top">
@@ -12,6 +12,8 @@
             <b-nav-item @click="showSighUpModal1" href="#">회원가입1</b-nav-item>
             <b-nav-item @click="showSighUpModal2" href="#">회원가입2</b-nav-item>
             <b-nav-item @click="showSighUpModal3" href="#">회원가입3</b-nav-item>
+            <b-nav-item @click="showFindIdPw" href="#">찾기</b-nav-item>
+            <b-nav-item @click="showPhone" href="#">핸드폰</b-nav-item>
           </b-navbar-nav>
         </b-collapse>
       </b-navbar>
@@ -23,7 +25,7 @@
       <div style="position:absolute; top:1em; right:1em;">
         <button type="button" class="close" @click="hideLoginModal"><span aria-hidden="true">&times;</span></button>
       </div>
-      <b-form style="padding:30px;">
+      <b-form>
         <b-form-group>
           <label for="inputId">
             <img src="/static/assets/signImage/login/id.png">
@@ -37,14 +39,16 @@
           <input type="password" id="inputPassword" placeholder="비밀 번호" class="input">
         </b-form-group>
 
-        <input type="checkbox">
-        <a class="login-footer" @mouseover="showImageLoginStatus" @mouseleave="hideImageLoginStatus">
-          로그인 상태 유지
-        </a>
-        <div class="float-right">
-          <button class="login-footer">아이디/비밀번호 찾기</button>
-          <button class="login-footer" @click="showSighUpModal1">회원가입</button>
-        </div>
+        <span class="login-footer">
+          <input type="checkbox">
+          <a @mouseover="showImageLoginStatus" @mouseleave="hideImageLoginStatus">
+            로그인 상태 유지
+          </a>
+        </span>
+        <span class="float-right login-footer">
+          <a>아이디/비밀번호 찾기 &nbsp</a>
+          <a @click="showSighUpModal1">회원가입</a>
+        </span>
         <!-- 로그인 버튼 -->
         <div class="float-right">
           <b-btn class="btnModal" type="submit" data-dismiss="modal" @click="hideLoginModal">
@@ -52,7 +56,7 @@
           </b-btn>
         </div>
         <!-- 로그인 상태 유지 tooltip 이미지-->
-        <img id="imgLoginStatus" style="visibility:hidden; position:relative;" src="/static/assets/signImage/login/loginStatus.png" alt="Login status image">
+        <img id="imgLoginStatus" class="img-login-status" src="/static/assets/signImage/login/loginStatus.png" alt="Login status image">
       </b-form>
     </b-modal>
 
@@ -94,6 +98,22 @@
         <button type="button" class="close" @click="hideSignUpModal3"><span aria-hidden="true">&times;</span></button>
       </div>
       <modal-signup3></modal-signup3>
+    </b-modal>
+
+    <!-- FindIdPw Modal -->
+    <b-modal ref="FindIdPw" hide-header hide-footer>
+      <div style="position:absolute; top:1em; right:1em;">
+        <button type="button" class="close" @click="hideFindIdPw"><span aria-hidden="true">&times;</span></button>
+      </div>
+      <find-id-pw></find-id-pw>
+    </b-modal>
+
+    <!-- Phone Modal -->
+    <b-modal ref="Phone" hide-header hide-footer>
+      <div style="position:absolute; top:1em; right:1em;">
+        <button type="button" class="close" @click="hidePhone"><span aria-hidden="true">&times;</span></button>
+      </div>
+      <phone></phone>
     </b-modal>
 
     <!-- emailCode Modal -->
@@ -174,9 +194,11 @@ import ModalLogin from './ModalLogin.vue'
 import ModalSignup1 from './ModalSignup1.vue'
 import ModalSignup2 from './ModalSignup2.vue'
 import ModalSignup3 from './ModalSignup3.vue'
+import FindIdPw from './FindIdPw.vue'
+import Phone from './Phone.vue'
 
 export default {
-  components: { ModalLogin, ModalSignup1, ModalSignup2, ModalSignup3 },
+  components: { ModalLogin, ModalSignup1, ModalSignup2, ModalSignup3, FindIdPw, Phone },
   methods: {
     showLoginModal () {
       this.$refs.Login.show()
@@ -190,6 +212,12 @@ export default {
     showSighUpModal3 () {
       this.$refs.SignUp3.show()
     },
+    showFindIdPw () {
+      this.$refs.FindIdPw.show()
+    },
+    showPhone () {
+      this.$refs.Phone.show()
+    },
     hideLoginModal () {
       this.$refs.Login.hide()
     },
@@ -201,6 +229,12 @@ export default {
     },
     hideSignUpModal3 () {
       this.$refs.SignUp3.hide()
+    },
+    hideFindIdPw () {
+      this.$refs.FindIdPw.hide()
+    },
+    hidePhone () {
+      this.$refs.Phone.hide()
     },
     // 로그인 상태 유지 tooltip
     showImageLoginStatus () {
@@ -228,8 +262,13 @@ export default {
   color: #464646;
   font-size: 12px;
   border:none;
+  margin-left: 110px;
 }
-
+.img-login-status {
+  visibility: hidden; 
+  position: relative;
+  margin-left: 110px;
+}
 /* SignUp2 Modal START */
 .btnBefore {
   margin-left:103px;

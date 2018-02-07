@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <b-form style="padding:30px;">
+  <div id="modal-login">
+    <b-form>
       <b-form-group>
         <label for="inputId">
           <img src="/static/assets/signImage/login/id.png">
@@ -60,7 +60,7 @@ export default {
 }
 
 .login-input {
-  width: 75%;
+  width: 418px;
   height: 23px;
   float: right;
   padding: 6px 11px;

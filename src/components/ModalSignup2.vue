@@ -1,5 +1,5 @@
 <template>
-  <div class="ModalSignup2 font-notosans" style="font-size:15px;">
+  <div id="modal-signup2" class="font-notosans" style="font-size:15px;">
     <img src="static/assets/signImage/signup1/welcome.png"
          alt="WELCOME! 환영합니다. 핸디즈 회원가입">
     <img class="agreement-header"

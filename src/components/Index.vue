@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="index">
     <nav-bar></nav-bar>
     <div class="hello">
       <h1>{{ msg }}</h1>
