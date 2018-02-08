@@ -21,10 +21,7 @@
       </a>
     </div>
     <div class="div-scroll">
-      이용약관 동의 (필수)이용약관 동의 (필수)이용약관 동의 (필수)이용약관 동의 (필수)<br/>
-      이용약관 동의 (필수)이용약관 동의 (필수)이용약관 동의 (필수)<br/>
-      이용약관 동의 (필수)이용약관 동의 (필수)이용약관 동의 (필수)<br/>
-      이용약관 동의 (필수)이용약관 동의 (필수)<br/>
+      <signup1-use></signup1-use>
     </div>
 
     <div class="font-notosans font-agreement">
@@ -35,15 +32,16 @@
       </a>
     </div>
     <div class="div-scroll">
-      이용약관 동의 (필수)이용약관 동의 (필수)이용약관 동의 (필수)이용약관 동의 (필수)<br/>
-      이용약관 동의 (필수)이용약관 동의 (필수)이용약관 동의 (필수)<br/>
-      이용약관 동의 (필수)이용약관 동의 (필수)이용약관 동의 (필수)<br/>
-      이용약관 동의 (필수)이용약관 동의 (필수)<br/>
+      <signup1-privacy></signup1-privacy>
     </div>
   </div>
 </template>
 <script>
+import Signup1Use from './Signup1Use.vue'
+import Signup1Privacy from './Signup1Privacy.vue'
+
 export default {
+  components: { Signup1Use, Signup1Privacy },
   name: 'ModalSignup1',
   data: function () {
     return {
@@ -108,7 +106,7 @@ hr {
   width:531px;
   height:86px;
   background-color:#f3f3f3;
-  font-size: 10px;
+  font-size: 12px;
   padding: 15px;
 }
 </style>
