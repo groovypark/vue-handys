@@ -123,8 +123,11 @@
         <button type="button" class="close" @click="hidePhone"><span aria-hidden="true">&times;</span></button>
       </div>
       <phone></phone>
-      <!-- 확인 버튼 -->
-      <img @click="showSetPw" class="confirm cursor" src="static/assets/signImage/btnConfirm.png" alt="확인">
+      <!-- 버튼 -->
+      <div class="btn-email cursor">
+        <img @click="AlertResend" src="static/assets/signImage/email/btnResend.png" alt="재발송">&nbsp; &nbsp;
+        <img @click="showSetPw" src="static/assets/signImage/btnConfirm.png" alt="확인">
+      </div>
     </b-modal>
 
     <!-- Email Modal -->
